@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DemoTube FAQ – Find answers to the most common questions about our online learning platform, courses, payments, certificates, and technical support." />
+  <meta name="keywords" content="DemoTube FAQ, frequently asked questions, online learning help, course support" />
+  <meta name="author" content="DemoTube" />
+  <meta property="og:title" content="DemoTube – Frequently Asked Questions" />
+  <meta property="og:description" content="Find answers to the most common questions about DemoTube." />
+  <meta property="og:type" content="website" />
+  <title>DemoTube – Frequently Asked Questions</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    /* ── FAQ Page Specific Styles ── */
+    .page-hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #0ea5e9 100%);
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .page-hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .page-hero-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 540px;
+      margin: 0 auto 24px;
+    }
+    .breadcrumb-custom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+    }
+    .breadcrumb-custom a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb-custom a:hover { color: #fff; }
+    .breadcrumb-custom .bc-sep { color: rgba(255,255,255,0.4); }
+    .breadcrumb-custom .bc-current { color: #fff; font-weight: 600; }
+
+    /* FAQ Search */
+    .faq-search-section {
+      padding: 56px 0 32px;
+      background: var(--bg-secondary);
+    }
+    .faq-search-wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .faq-search-wrap i {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      font-size: 18px;
+      pointer-events: none;
+    }
+    .faq-search-input {
+      width: 100%;
+      padding: 18px 20px 18px 52px;
+      border: 2px solid var(--border-color);
+      border-radius: 50px;
+      font-size: 15px;
+      font-family: var(--font-body);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .faq-search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
+    }
+    .faq-search-input::placeholder { color: #94a3b8; }
+
+    /* FAQ Category Tabs */
+    .faq-tabs-section {
+      padding: 32px 0 0;
+      background: var(--bg-secondary);
+    }
+    .faq-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .faq-tab-btn {
+      padding: 10px 22px;
+      border-radius: 50px;
+      border: 2px solid var(--border-color);
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .faq-tab-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .faq-tab-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+    .faq-tab-btn .tab-count {
+      background: rgba(255,255,255,0.25);
+      border-radius: 20px;
+      padding: 1px 8px;
+      font-size: 12px;
+    }
+    .faq-tab-btn:not(.active) .tab-count {
+      background: var(--bg-secondary);
+      color: var(--text-muted);
+    }
+
+    /* FAQ Accordion */
+    .faq-accordion-section {
+      padding: 48px 0 64px;
+      background: var(--bg-secondary);
+    }
+    .faq-group {
+      margin-bottom: 48px;
+    }
+    .faq-group-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .faq-group-title i {
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .faq-item {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.3s, border-color 0.3s;
+    }
+    .faq-item:hover {
+      border-color: rgba(37,99,235,0.3);
+      box-shadow: 0 4px 20px rgba(37,99,235,0.08);
+    }
+    .faq-item.open {
+      border-color: rgba(37,99,235,0.4);
+      box-shadow: 0 6px 24px rgba(37,99,235,0.1);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      transition: color 0.25s;
+    }
+    .faq-question:hover { color: var(--primary); }
+    .faq-item.open .faq-question { color: var(--primary); }
+    .faq-toggle-icon {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 13px;
+      transition: background 0.25s, color 0.25s, transform 0.35s;
+    }
+    .faq-item.open .faq-toggle-icon {
+      background: var(--primary);
+      color: #fff;
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .faq-item.open .faq-answer {
+      max-height: 500px;
+    }
+    .faq-answer-inner {
+      padding: 0 24px 22px;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-color);
+      padding-top: 18px;
+    }
+
+    /* Still Have Questions CTA */
+    .faq-cta-section {
+      padding: 0 0 80px;
+      background: var(--bg-secondary);
+    }
+    .faq-cta-card {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      border-radius: 24px;
+      padding: 64px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .faq-cta-card::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      top: -100px;
+      right: -80px;
+    }
+    .faq-cta-card::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      bottom: -60px;
+      left: -40px;
+    }
+    .faq-cta-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 28px;
+      color: #fff;
+    }
+    .faq-cta-card h2 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .faq-cta-card p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-white-custom {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: #fff;
+      color: var(--primary);
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-family: var(--font-body);
+    }
+    .btn-white-custom:hover {
+      background: rgba(255,255,255,0.9);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .btn-outline-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.5);
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-family: var(--font-body);
+    }
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border-color: #fff;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand-custom" aria-label="DemoTube Home">
+        <div class="brand-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+        Demo<span style="color:var(--secondary)">Tube</span>
+      </a>
+
+      <ul class="nav-menu" role="list">
+        <li><a href="index.html" class="nav-link-custom">Home</a></li>
+        <li><a href="courses.html" class="nav-link-custom">Courses</a></li>
+        <li><a href="categories.html" class="nav-link-custom">Categories</a></li>
+        <li><a href="teachers.html" class="nav-link-custom">Teachers</a></li>
+        <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+        <li><a href="about.html" class="nav-link-custom">About</a></li>
+        <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-icon-btn" id="navSearchBtn" aria-label="Open search">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </button>
+        <button class="nav-icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+        <a href="courses.html" class="btn-primary-custom d-none d-md-inline-flex" style="padding:10px 22px;font-size:13px;">
+          Get Started
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+  <div class="container">
+    <a href="index.html" class="nav-link-custom">Home</a>
+    <a href="courses.html" class="nav-link-custom">Courses</a>
+    <a href="categories.html" class="nav-link-custom">Categories</a>
+    <a href="teachers.html" class="nav-link-custom">Teachers</a>
+    <a href="blog.html" class="nav-link-custom">Blog</a>
+    <a href="about.html" class="nav-link-custom">About</a>
+    <a href="contact.html" class="nav-link-custom">Contact</a>
+    <a href="faq.html" class="nav-link-custom active">FAQ</a>
+    <div style="padding:12px 24px;">
+      <a href="courses.html" class="btn-primary-custom" style="width:100%;justify-content:center;">Get Started</a>
+    </div>
+  </div>
+</div>
+
+<!-- Search Overlay -->
+<div id="searchOverlay" style="display:none;opacity:0;position:fixed;inset:0;background:rgba(15,23,42,0.85);backdrop-filter:blur(8px);z-index:2000;align-items:center;justify-content:center;padding:24px;transition:opacity 0.3s ease;">
+  <div style="width:100%;max-width:600px;position:relative;">
+    <button id="searchClose" style="position:absolute;top:-50px;right:0;background:transparent;border:none;color:white;font-size:24px;cursor:pointer;" aria-label="Close search"><i class="fas fa-times"></i></button>
+    <div style="position:relative;">
+      <i class="fas fa-search" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);color:#64748b;font-size:18px;"></i>
+      <input id="globalSearch" type="text" placeholder="Search courses, topics, teachers…" aria-label="Global search" style="width:100%;padding:18px 20px 18px 52px;background:white;border:none;border-radius:16px;font-size:18px;font-family:var(--font-body);outline:none;color:#1e293b;" />
+    </div>
+    <p style="color:rgba(255,255,255,0.5);font-size:14px;margin-top:12px;text-align:center;">Press ESC to close</p>
+  </div>
+</div>
+
+<!-- ===================== PAGE HERO ===================== -->
+<section class="page-hero" aria-label="FAQ page hero">
+  <div class="container">
+    <div class="text-center" style="position:relative;z-index:1;">
+      <div class="breadcrumb-custom mb-3" aria-label="Breadcrumb">
+        <a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Home</a>
+        <span class="bc-sep" aria-hidden="true"><i class="fas fa-chevron-right" style="font-size:10px;"></i></span>
+        <span class="bc-current">FAQ</span>
+      </div>
+      <h1 class="page-hero-title" data-aos="fade-up">
+        <i class="fas fa-question-circle" style="font-size:0.85em;opacity:0.8;margin-right:10px;" aria-hidden="true"></i>
+        Frequently Asked Questions
+      </h1>
+      <p class="page-hero-subtitle" data-aos="fade-up" data-aos-delay="100">
+        Find answers to the most common questions about DemoTube — courses, payments, certificates, and more.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ SEARCH BAR ===================== -->
+<section class="faq-search-section" aria-label="Search FAQs">
+  <div class="container">
+    <div class="faq-search-wrap" data-aos="fade-up">
+      <i class="fas fa-search" aria-hidden="true"></i>
+      <input
+        type="text"
+        class="faq-search-input"
+        placeholder="Search your question…"
+        aria-label="Search frequently asked questions"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ CATEGORY TABS ===================== -->
+<section class="faq-tabs-section" aria-label="FAQ categories">
+  <div class="container">
+    <div class="faq-tabs" role="tablist" data-aos="fade-up" data-aos-delay="50">
+      <button class="faq-tab-btn active" role="tab" aria-selected="true" data-category="all">
+        <i class="fas fa-list" aria-hidden="true"></i> All Topics
+        <span class="tab-count">20</span>
+      </button>
+      <button class="faq-tab-btn" role="tab" aria-selected="false" data-category="general">
+        <i class="fas fa-info-circle" aria-hidden="true"></i> General
+        <span class="tab-count">5</span>
+      </button>
+      <button class="faq-tab-btn" role="tab" aria-selected="false" data-category="courses">
+        <i class="fas fa-graduation-cap" aria-hidden="true"></i> Courses
+        <span class="tab-count">5</span>
+      </button>
+      <button class="faq-tab-btn" role="tab" aria-selected="false" data-category="technical">
+        <i class="fas fa-cog" aria-hidden="true"></i> Technical
+        <span class="tab-count">4</span>
+      </button>
+      <button class="faq-tab-btn" role="tab" aria-selected="false" data-category="payments">
+        <i class="fas fa-credit-card" aria-hidden="true"></i> Payments
+        <span class="tab-count">3</span>
+      </button>
+      <button class="faq-tab-btn" role="tab" aria-selected="false" data-category="certificates">
+        <i class="fas fa-certificate" aria-hidden="true"></i> Certificates
+        <span class="tab-count">3</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ACCORDION ===================== -->
+<section class="faq-accordion-section" aria-label="FAQ accordion">
+  <div class="container">
+    <div style="max-width:820px;margin:0 auto;">
+
+      <!-- GENERAL -->
+      <div class="faq-group" data-aos="fade-up">
+        <h2 class="faq-group-title">
+          <i class="fas fa-info-circle" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);color:#2563eb;" aria-hidden="true"></i>
+          General Questions
+        </h2>
+
+        <!-- Q1 -->
+        <div class="faq-item" data-category="general">
+          <button class="faq-question" aria-expanded="false">
+            What is DemoTube and how does it work?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              DemoTube is a comprehensive online educational platform that connects passionate learners with expert instructors worldwide. You simply browse our library of 200+ courses, enroll in the ones that match your goals, and learn at your own pace through high-quality video lessons. Each course includes assignments, quizzes, and community discussions to reinforce your learning. Once enrolled, you get lifetime access to all course materials so you can revisit lessons whenever you need a refresher.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="faq-item" data-category="general">
+          <button class="faq-question" aria-expanded="false">
+            Is DemoTube free to use?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              DemoTube offers a generous selection of completely free courses that you can start learning right away without any payment. We also have premium courses with deeper content, exclusive projects, and personalized instructor feedback, available at affordable one-time prices. Creating an account is always 100% free, and there are no hidden subscription fees. Check our free tier to explore the platform before investing in a premium course.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="faq-item" data-category="general">
+          <button class="faq-question" aria-expanded="false">
+            How do I create an account on DemoTube?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Signing up for DemoTube is quick and takes less than two minutes. Click the "Get Started" button on any page, enter your name, email address, and a secure password, and you're ready to go. You can also sign up using your existing Google or Facebook account for even faster access. After registration, you'll receive a confirmation email — once verified, your full account is activated and you can enroll in courses immediately.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="faq-item" data-category="general">
+          <button class="faq-question" aria-expanded="false">
+            Can I access courses on mobile devices?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Absolutely! DemoTube is fully optimized for all screen sizes, so you can learn seamlessly on smartphones, tablets, laptops, and desktops. Our responsive design ensures videos, quizzes, and course materials display perfectly on any device. We also offer an offline download feature for mobile users on select courses, so you can continue learning even without an internet connection. Simply open the DemoTube website in your mobile browser to get started.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="faq-item" data-category="general">
+          <button class="faq-question" aria-expanded="false">
+            What languages are courses available in?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              DemoTube currently offers courses primarily in English, with a growing selection of courses in Spanish, French, Arabic, Hindi, Urdu, and Mandarin. Many of our English-language courses include subtitles and closed captions in 15+ languages, making them accessible to a global audience. We are continuously expanding our multilingual library — if you'd like to see courses in a specific language, please let us know through our feedback form and we'll prioritize it.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COURSES -->
+      <div class="faq-group" data-aos="fade-up" data-aos-delay="50">
+        <h2 class="faq-group-title">
+          <i class="fas fa-graduation-cap" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);color:#10b981;" aria-hidden="true"></i>
+          Courses
+        </h2>
+
+        <!-- Q6 -->
+        <div class="faq-item" data-category="courses">
+          <button class="faq-question" aria-expanded="false">
+            How long do I have access to a course after enrolling?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Once you enroll in a course on DemoTube — whether free or paid — you get lifetime access to all its content, including future updates the instructor adds. There are no expiry dates, no subscription renewals, and no time pressure. You can learn at whatever pace suits your lifestyle and revisit any lesson or resource at any time. This includes all video lectures, downloadable materials, quizzes, and discussion forums associated with the course.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="faq-item" data-category="courses">
+          <button class="faq-question" aria-expanded="false">
+            Are the courses self-paced or scheduled?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Almost all DemoTube courses are 100% self-paced, meaning you decide when and how fast you learn. There are no fixed deadlines, no live sessions to attend, and no penalties for taking longer. A small number of advanced programs include optional live Q&amp;A sessions with instructors, but these are always recorded and made available for those who cannot attend live. This flexibility makes DemoTube ideal for working professionals, students, and busy parents alike.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="faq-item" data-category="courses">
+          <button class="faq-question" aria-expanded="false">
+            How do I know which course is right for me?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Each course page includes a detailed description, a full curriculum outline, prerequisite information, and sample lesson previews so you can make an informed choice before enrolling. We also display student reviews, ratings, instructor credentials, and estimated completion time. If you're unsure about your level, look for courses labeled "Beginner" — these assume zero prior knowledge. You can also browse our Categories page to explore subject areas and filter by skill level, duration, or rating to narrow down your options.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="faq-item" data-category="courses">
+          <button class="faq-question" aria-expanded="false">
+            Can I download course materials for offline use?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Yes! DemoTube provides downloadable resources such as lecture notes, PDF summaries, code files, cheat sheets, and project starter files for most courses. These can be downloaded directly from the course dashboard at any time. For premium courses, select videos may also be downloadable for offline viewing via supported devices. Any downloaded materials remain accessible indefinitely as part of your lifetime enrollment.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="faq-item" data-category="courses">
+          <button class="faq-question" aria-expanded="false">
+            Do instructors provide feedback on assignments?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Instructor engagement varies by course, but most DemoTube instructors actively monitor the course Q&amp;A section and typically respond to student questions within 24–48 hours. Premium courses often include assignment reviews where instructors provide personalized written feedback on your submitted projects. Additionally, our vibrant peer community allows fellow students to share insights and review each other's work. We encourage instructors to maintain a response rate of 80% or higher to ensure quality support for every learner.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TECHNICAL -->
+      <div class="faq-group" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="faq-group-title">
+          <i class="fas fa-cog" style="background:linear-gradient(135deg,#fef3c7,#fde68a);color:#d97706;" aria-hidden="true"></i>
+          Technical Support
+        </h2>
+
+        <!-- Q11 -->
+        <div class="faq-item" data-category="technical">
+          <button class="faq-question" aria-expanded="false">
+            What internet speed is recommended for streaming videos?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              For a smooth learning experience, we recommend a minimum internet speed of 5 Mbps for standard definition video (720p) and at least 10 Mbps for high definition content (1080p). If your connection is slower, you can manually select a lower video quality in the player settings — even 2 Mbps is sufficient for 480p streaming. DemoTube's video player also uses adaptive bitrate streaming, which automatically adjusts quality based on your current bandwidth so you experience minimal buffering.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q12 -->
+        <div class="faq-item" data-category="technical">
+          <button class="faq-question" aria-expanded="false">
+            Which browsers are supported by DemoTube?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              DemoTube is fully supported on all modern browsers, including Google Chrome (recommended), Mozilla Firefox, Microsoft Edge, Apple Safari, and Opera. We recommend keeping your browser updated to the latest version for the best performance and security. Internet Explorer is not supported. For mobile users, the platform works seamlessly in Chrome for Android and Safari for iOS. If you encounter any display issues, try clearing your browser cache or switching to Chrome.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q13 -->
+        <div class="faq-item" data-category="technical">
+          <button class="faq-question" aria-expanded="false">
+            Why isn't my video playing correctly?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              If a video isn't playing properly, there are a few quick fixes to try. First, refresh the page and check your internet connection speed. If the issue persists, clear your browser's cache and cookies, then reload the page. Try disabling any browser extensions or ad blockers, as these can sometimes interfere with our video player. Switching to a different browser (e.g., Chrome) often resolves playback issues. If none of these steps help, please report the problem via our support page and include your browser version and operating system details.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q14 -->
+        <div class="faq-item" data-category="technical">
+          <button class="faq-question" aria-expanded="false">
+            How do I report a technical issue?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              We make it easy to report technical problems so we can fix them quickly. Visit our <a href="contact.html" style="color:var(--primary);font-weight:600;">Contact page</a> and fill out the support form, selecting "Technical Issue" as the category. Please include as much detail as possible — your browser, operating system, the course name, and a description of what happened. Screenshots or screen recordings are especially helpful. Our technical support team responds to all reports within 24 business hours and will keep you updated on the resolution progress.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAYMENTS -->
+      <div class="faq-group" data-aos="fade-up" data-aos-delay="150">
+        <h2 class="faq-group-title">
+          <i class="fas fa-credit-card" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);color:#16a34a;" aria-hidden="true"></i>
+          Payments &amp; Pricing
+        </h2>
+
+        <!-- Q15 -->
+        <div class="faq-item" data-category="payments">
+          <button class="faq-question" aria-expanded="false">
+            Is there a free trial available?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Yes — DemoTube gives you free access to a curated selection of full courses with no credit card required, ever. For premium courses, you can preview the first few lessons for free before deciding to enroll. This lets you evaluate the instructor's teaching style, video quality, and content depth before making any financial commitment. We want you to be completely confident before you invest, which is why we also offer a 30-day money-back guarantee on all paid purchases.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q16 -->
+        <div class="faq-item" data-category="payments">
+          <button class="faq-question" aria-expanded="false">
+            What payment methods are accepted?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              DemoTube accepts a wide range of payment methods to make enrollment as convenient as possible. These include all major credit and debit cards (Visa, MasterCard, American Express), PayPal, Google Pay, Apple Pay, and bank transfers in select regions. All transactions are secured with industry-standard SSL encryption and processed through trusted payment gateways. Once a payment is confirmed, you receive an instant email receipt, and your course access is activated immediately.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q17 -->
+        <div class="faq-item" data-category="payments">
+          <button class="faq-question" aria-expanded="false">
+            Can I get a refund if I'm not satisfied?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Absolutely. DemoTube offers a 30-day money-back guarantee on all paid courses, no questions asked. If you enroll in a course and feel it doesn't meet your expectations for any reason, simply contact our support team within 30 days of purchase and we will process a full refund to your original payment method. Refunds typically appear within 5–10 business days depending on your bank. Note that courses purchased during special promotions may have modified refund policies, which are clearly stated at the time of purchase.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATES -->
+      <div class="faq-group" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="faq-group-title">
+          <i class="fas fa-certificate" style="background:linear-gradient(135deg,#fdf2f8,#fce7f3);color:#db2777;" aria-hidden="true"></i>
+          Certificates
+        </h2>
+
+        <!-- Q18 -->
+        <div class="faq-item" data-category="certificates">
+          <button class="faq-question" aria-expanded="false">
+            Do I get a certificate after completing a course?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Yes! Upon completing 100% of a course — all lessons, quizzes, and any required assignments — DemoTube automatically generates a personalized Certificate of Completion. The certificate includes your name, the course title, the instructor's name, the completion date, and a unique verification ID. You can download it as a high-resolution PDF, print it, or share it digitally. Certificates are available for both free and paid courses, so your hard work is always recognized and documented.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q19 -->
+        <div class="faq-item" data-category="certificates">
+          <button class="faq-question" aria-expanded="false">
+            Are DemoTube certificates recognized by employers?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              DemoTube certificates are increasingly recognized by employers across the technology, creative, and business industries as evidence of self-driven learning and practical skill development. Each certificate carries a unique verification URL that hiring managers can use to confirm its authenticity online. While our certificates are not formally accredited by government bodies like a university degree, many of our students have used them to land jobs, promotions, and freelance contracts at companies including startups and Fortune 500 firms. Pairing your certificate with a strong portfolio project significantly increases its value to employers.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q20 -->
+        <div class="faq-item" data-category="certificates">
+          <button class="faq-question" aria-expanded="false">
+            How do I share my certificate on LinkedIn?
+            <span class="faq-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Sharing your DemoTube certificate on LinkedIn is simple and takes just a few seconds. From your course dashboard, click "View Certificate" and then select the "Add to LinkedIn" button — this will take you directly to LinkedIn's "Add License &amp; Certification" section, with most fields pre-filled for you. Enter the completion date, add the certificate URL for verification, and click Save. Your new certification will appear on your LinkedIn profile under the "Licenses &amp; Certifications" section, visible to recruiters and connections. You can also download the certificate PDF and attach it to job applications or email signatures.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STILL HAVE QUESTIONS CTA ===================== -->
+<section class="faq-cta-section" aria-label="Contact support CTA">
+  <div class="container">
+    <div class="faq-cta-card" data-aos="fade-up">
+      <div class="faq-cta-icon" aria-hidden="true">
+        <i class="fas fa-headset"></i>
+      </div>
+      <h2>Still Need Help?</h2>
+      <p>Can't find the answer you're looking for? Our friendly support team is here 24/7 and will get back to you as quickly as possible.</p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center" style="position:relative;z-index:1;">
+        <a href="contact.html" class="btn-white-custom">
+          <i class="fas fa-envelope" aria-hidden="true"></i> Contact Support
+        </a>
+        <a href="courses.html" class="btn-outline-white">
+          <i class="fas fa-graduation-cap" aria-hidden="true"></i> Browse Courses
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NEWSLETTER ===================== -->
+<section class="section-padding bg-section" aria-labelledby="newsletter-heading">
+  <div class="container">
+    <div class="newsletter-section" data-aos="fade-up">
+      <div class="newsletter-icon" aria-hidden="true"><i class="fas fa-envelope-open-text"></i></div>
+      <h2 class="section-title" id="newsletter-heading">Stay Updated with <span class="gradient-text">New Courses</span></h2>
+      <p class="section-subtitle mb-4">Subscribe to our newsletter and get notified about new courses, promotions, and educational tips.</p>
+      <form id="newsletterForm" action="#" novalidate aria-label="Newsletter subscription">
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email address…" aria-label="Email address" required />
+          <button type="submit" class="btn-primary-custom" style="border-radius:50px;white-space:nowrap;">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i> Subscribe
+          </button>
+        </div>
+      </form>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:12px;">
+        <i class="fas fa-lock" aria-hidden="true"></i> No spam, ever. Unsubscribe at any time.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-md-6 col-lg-4">
+        <div class="footer-brand" aria-label="DemoTube">
+          <div class="brand-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+          Demo<span style="color:var(--secondary);">Tube</span>
+        </div>
+        <p class="footer-desc">Empowering learners worldwide with expert-led courses, practical projects, and lifetime access to world-class education.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Quick Links</h3>
+        <nav aria-label="Footer navigation">
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Home</a></li>
+            <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Courses</a></li>
+            <li><a href="teachers.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Teachers</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> About</a></li>
+            <li><a href="blog.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Blog</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Contact</a></li>
+            <li><a href="faq.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Categories</h3>
+        <ul class="footer-links">
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Programming</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Web Dev</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> AI &amp; ML</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Data Science</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Design</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Business</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> English</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="footer-contact-info">123 Learning Street, Education City, London EC1A 1BB, UK</div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-phone"></i></div>
+          <div class="footer-contact-info"><a href="tel:+441234567890" style="color:rgba(255,255,255,0.6);">+44 123 456 7890</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
+          <div class="footer-contact-info"><a href="mailto:hello@demotube.com" style="color:rgba(255,255,255,0.6);">hello@demotube.com</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
+          <div class="footer-contact-info">Mon – Fri: 9:00 AM – 6:00 PM</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 DemoTube. All rights reserved. Made with <span style="color:#ef4444;">♥</span> for learners worldwide.</p>
+      <div style="display:flex;gap:16px;">
+        <a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Privacy Policy</a>
+        <a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Terms of Service</a>
+        <a href="sitemap.xml" style="font-size:13px;color:rgba(255,255,255,0.4);">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button class="scroll-top-btn" aria-label="Scroll to top">
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<!-- Main JS -->
+<script src="js/main.js"></script>
+
+<script>
+  // ── FAQ Accordion ──
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+
+      // Close all open items
+      document.querySelectorAll('.faq-item.open').forEach(openItem => {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        // Smooth scroll into view if partially hidden
+        setTimeout(() => {
+          const rect = item.getBoundingClientRect();
+          if (rect.top < 80) {
+            item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 350);
+      }
+    });
+  });
+
+  // ── FAQ Category Tabs ──
+  const tabBtns = document.querySelectorAll('.faq-tab-btn');
+  const faqItems = document.querySelectorAll('.faq-item');
+  const faqGroups = document.querySelectorAll('.faq-group');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active tab
+      tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      const cat = btn.dataset.category;
+
+      if (cat === 'all') {
+        faqGroups.forEach(g => g.style.display = '');
+        faqItems.forEach(item => item.style.display = '');
+      } else {
+        faqGroups.forEach(g => {
+          let hasVisible = false;
+          g.querySelectorAll('.faq-item').forEach(item => {
+            const show = item.dataset.category === cat;
+            item.style.display = show ? '' : 'none';
+            if (show) hasVisible = true;
+          });
+          g.style.display = hasVisible ? '' : 'none';
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

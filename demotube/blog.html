@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DemoTube Blog – Learning resources, career tips, programming guides, and insights from expert instructors." />
+  <meta name="keywords" content="DemoTube blog, online learning tips, programming articles, career advice, education" />
+  <meta name="author" content="DemoTube" />
+  <meta property="og:title" content="Learning Resources & Blog – DemoTube" />
+  <meta property="og:description" content="Expert tips, learning guides, career advice and insights from the DemoTube team." />
+  <meta property="og:type" content="website" />
+  <title>Blog – DemoTube Learning Resources & Articles</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #0ea5e9 100%);
+      padding: 100px 0 70px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .page-hero-title {
+      font-family: var(--font-heading, 'Poppins', sans-serif);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .breadcrumb-custom {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+    }
+    .breadcrumb-custom a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb-custom a:hover { color: white; }
+    .breadcrumb-custom .sep { color: rgba(255,255,255,0.4); }
+    .breadcrumb-custom .current { color: white; font-weight: 600; }
+
+    /* Featured Article */
+    .featured-article {
+      background: var(--bg-white, #fff);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border-color, #e2e8f0);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .featured-article:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+    .featured-article-img {
+      position: relative;
+      height: 420px;
+      overflow: hidden;
+    }
+    .featured-article-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .featured-article:hover .featured-article-img img { transform: scale(1.03); }
+    .featured-tag {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .featured-article-body {
+      padding: 36px 40px;
+    }
+    .featured-article-title {
+      font-family: var(--font-heading, 'Poppins', sans-serif);
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--text-primary, #1e293b);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .article-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .article-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-muted, #64748b);
+    }
+    .article-meta-item i { color: #2563eb; }
+
+    /* Blog Cards */
+    .blog-card {
+      background: var(--bg-white, #fff);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-color, #e2e8f0);
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .blog-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+    .blog-card-img {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    .blog-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .blog-card:hover .blog-card-img img { transform: scale(1.06); }
+    .blog-card-body { padding: 24px; }
+    .blog-category-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #2563eb;
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+    }
+    .blog-card-title {
+      font-family: var(--font-heading, 'Poppins', sans-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary, #1e293b);
+      line-height: 1.45;
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .blog-card-desc {
+      font-size: 13.5px;
+      color: var(--text-muted, #64748b);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .blog-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color, #e2e8f0);
+    }
+    .blog-meta-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 12px;
+      color: var(--text-muted, #64748b);
+    }
+    .blog-meta-info span { display: flex; align-items: center; gap: 5px; }
+    .blog-read-more {
+      font-size: 13px;
+      font-weight: 700;
+      color: #2563eb;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+    .blog-read-more:hover { gap: 10px; color: #1d4ed8; }
+
+    /* Pagination */
+    .pagination-custom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 48px;
+    }
+    .page-btn {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--border-color, #e2e8f0);
+      background: var(--bg-white, #fff);
+      color: var(--text-primary, #1e293b);
+      transition: all 0.2s ease;
+    }
+    .page-btn:hover, .page-btn.active {
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+    }
+    .page-btn-nav {
+      width: auto;
+      padding: 0 16px;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand-custom" aria-label="DemoTube Home">
+        <div class="brand-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+        Demo<span style="color:var(--secondary)">Tube</span>
+      </a>
+
+      <ul class="nav-menu" role="list">
+        <li><a href="index.html" class="nav-link-custom">Home</a></li>
+        <li><a href="courses.html" class="nav-link-custom">Courses</a></li>
+        <li><a href="categories.html" class="nav-link-custom">Categories</a></li>
+        <li><a href="teachers.html" class="nav-link-custom">Teachers</a></li>
+        <li><a href="blog.html" class="nav-link-custom active">Blog</a></li>
+        <li><a href="about.html" class="nav-link-custom">About</a></li>
+        <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-icon-btn" id="navSearchBtn" aria-label="Open search">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </button>
+        <button class="nav-icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+        <a href="courses.html" class="btn-primary-custom d-none d-md-inline-flex" style="padding:10px 22px;font-size:13px;">
+          Get Started
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+  <div class="container">
+    <a href="index.html" class="nav-link-custom">Home</a>
+    <a href="courses.html" class="nav-link-custom">Courses</a>
+    <a href="categories.html" class="nav-link-custom">Categories</a>
+    <a href="teachers.html" class="nav-link-custom">Teachers</a>
+    <a href="blog.html" class="nav-link-custom active">Blog</a>
+    <a href="about.html" class="nav-link-custom">About</a>
+    <a href="contact.html" class="nav-link-custom">Contact</a>
+    <a href="faq.html" class="nav-link-custom">FAQ</a>
+    <div style="padding:12px 24px;">
+      <a href="courses.html" class="btn-primary-custom" style="width:100%;justify-content:center;">Get Started</a>
+    </div>
+  </div>
+</div>
+
+<!-- Search Overlay -->
+<div id="searchOverlay" style="display:none;opacity:0;position:fixed;inset:0;background:rgba(15,23,42,0.85);backdrop-filter:blur(8px);z-index:2000;align-items:center;justify-content:center;padding:24px;transition:opacity 0.3s ease;">
+  <div style="width:100%;max-width:600px;position:relative;">
+    <button id="searchClose" style="position:absolute;top:-50px;right:0;background:transparent;border:none;color:white;font-size:24px;cursor:pointer;" aria-label="Close search"><i class="fas fa-times"></i></button>
+    <div style="position:relative;">
+      <i class="fas fa-search" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);color:#64748b;font-size:18px;"></i>
+      <input id="globalSearch" type="text" placeholder="Search courses, topics, teachers…" aria-label="Global search" style="width:100%;padding:18px 20px 18px 52px;background:white;border:none;border-radius:16px;font-size:18px;font-family:var(--font-body);outline:none;color:#1e293b;" />
+    </div>
+    <p style="color:rgba(255,255,255,0.5);font-size:14px;margin-top:12px;text-align:center;">Press ESC to close</p>
+  </div>
+</div>
+
+<!-- ===================== PAGE HERO ===================== -->
+<section class="page-hero" aria-label="Blog page hero">
+  <div class="container position-relative">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-7" data-aos="fade-up">
+        <h1 class="page-hero-title">Learning Resources &amp; Blog</h1>
+        <p style="color:rgba(255,255,255,0.8);font-size:1.1rem;margin-bottom:24px;">Expert insights, career tips, and in-depth guides from our instructors</p>
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb-custom justify-content-center">
+            <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
+            <li class="sep" aria-hidden="true"><i class="fas fa-chevron-right" style="font-size:10px;"></i></li>
+            <li class="current">Blog</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURED ARTICLE ===================== -->
+<section class="section-padding bg-white-section" aria-labelledby="featured-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Editor's Pick</span>
+      <h2 class="section-title" id="featured-heading">Featured <span class="gradient-text">Article</span></h2>
+    </div>
+
+    <div class="featured-article" data-aos="fade-up" data-aos-delay="100">
+      <div class="featured-article-img">
+        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=75"
+             alt="Artificial Intelligence transforming online learning illustration"
+             loading="eager" width="1200" height="420" />
+        <div class="featured-tag">
+          <i class="fas fa-fire" aria-hidden="true"></i> Featured
+        </div>
+        <div style="position:absolute;bottom:20px;right:20px;background:white;border-radius:10px;padding:6px 14px;font-size:12px;font-weight:700;color:#2563eb;">
+          AI &amp; Education
+        </div>
+      </div>
+      <div class="featured-article-body">
+        <div class="article-meta-row">
+          <div class="article-meta-item">
+            <i class="far fa-calendar" aria-hidden="true"></i>
+            <span>July 1, 2025</span>
+          </div>
+          <div class="article-meta-item">
+            <i class="far fa-clock" aria-hidden="true"></i>
+            <span>7 min read</span>
+          </div>
+          <div class="article-meta-item">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            <span>By <strong>Dr. James Wilson</strong></span>
+          </div>
+          <div class="article-meta-item">
+            <i class="far fa-comment" aria-hidden="true"></i>
+            <span>48 Comments</span>
+          </div>
+        </div>
+        <h2 class="featured-article-title">How Artificial Intelligence is Transforming Online Learning in 2025</h2>
+        <p style="color:var(--text-secondary,#475569);line-height:1.8;margin-bottom:14px;">
+          Artificial Intelligence is no longer a futuristic concept reserved for research labs — it's actively reshaping how millions of students around the world learn, practice, and grow. From personalized learning paths that adapt in real time to each student's pace and preferences, to AI tutors capable of answering questions at 3 AM, the classroom experience is being fundamentally redefined.
+        </p>
+        <p style="color:var(--text-secondary,#475569);line-height:1.8;margin-bottom:28px;">
+          In this comprehensive guide, we explore the top AI-powered features now available on leading edtech platforms, interview three DemoTube instructors about how they're integrating AI tools into their curriculum design, and discuss what this technological revolution means for learners who want to stay ahead in an increasingly automated world. Whether you're a student, educator, or career switcher, understanding AI's role in education is no longer optional — it's essential.
+        </p>
+        <a href="#" class="btn-primary-custom">
+          <i class="fas fa-book-open" aria-hidden="true"></i> Read Full Article
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BLOG GRID ===================== -->
+<section class="section-padding bg-section" aria-labelledby="blog-grid-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Latest Articles</span>
+      <h2 class="section-title" id="blog-grid-heading">Browse All <span class="gradient-text">Articles</span></h2>
+      <p class="section-subtitle">Practical guides, career advice, and deep dives written by our expert instructors</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Article 1 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+        <article class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=600&q=75"
+                 alt="Getting started with programming tutorial"
+                 loading="lazy" width="600" height="200" />
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-category-tag">Programming</span>
+            <h3 class="blog-card-title">10 Tips for Getting Started with Programming</h3>
+            <p class="blog-card-desc">Embarking on your coding journey can feel overwhelming. Here are the ten most essential tips that will help you kickstart your programming career effectively and avoid the most common beginner mistakes.</p>
+            <div class="blog-card-meta">
+              <div class="blog-meta-info">
+                <span><i class="far fa-calendar" aria-hidden="true"></i> Jun 28, 2025</span>
+                <span><i class="far fa-clock" aria-hidden="true"></i> 5 min</span>
+              </div>
+              <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Article 2 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <article class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&q=75"
+                 alt="Career transition into tech illustration"
+                 loading="lazy" width="600" height="200" />
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-category-tag" style="color:#10b981;background:linear-gradient(135deg,#ecfdf5,#d1fae5);">Career Tips</span>
+            <h3 class="blog-card-title">How to Successfully Transition to a Tech Career</h3>
+            <p class="blog-card-desc">It's never too late to switch careers. Discover the proven roadmap for transitioning into the tech industry and learn how strategic online courses can dramatically accelerate your timeline.</p>
+            <div class="blog-card-meta">
+              <div class="blog-meta-info">
+                <span><i class="far fa-calendar" aria-hidden="true"></i> Jun 22, 2025</span>
+                <span><i class="far fa-clock" aria-hidden="true"></i> 6 min</span>
+              </div>
+              <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Article 3 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+        <article class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=600&q=75"
+                 alt="Web development guide 2025"
+                 loading="lazy" width="600" height="200" />
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-category-tag" style="color:#ea580c;background:linear-gradient(135deg,#fff7ed,#ffedd5);">Web Dev</span>
+            <h3 class="blog-card-title">The Complete Guide to Web Development in 2025</h3>
+            <p class="blog-card-desc">Web development is evolving faster than ever. This comprehensive guide covers every technology, framework, and tool you need to master in 2025 to land your first web developer job or level up your existing skills.</p>
+            <div class="blog-card-meta">
+              <div class="blog-meta-info">
+                <span><i class="far fa-calendar" aria-hidden="true"></i> Jun 18, 2025</span>
+                <span><i class="far fa-clock" aria-hidden="true"></i> 9 min</span>
+              </div>
+              <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Article 4 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+        <article class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&q=75"
+                 alt="Machine learning beginner's guide"
+                 loading="lazy" width="600" height="200" />
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-category-tag" style="color:#d97706;background:linear-gradient(135deg,#fef3c7,#fde68a);">AI &amp; ML</span>
+            <h3 class="blog-card-title">Understanding Machine Learning: A Beginner's Guide</h3>
+            <p class="blog-card-desc">Machine learning doesn't have to be intimidating. We break down the core concepts, algorithms, and real-world applications in plain language so any motivated learner can start understanding this transformative technology.</p>
+            <div class="blog-card-meta">
+              <div class="blog-meta-info">
+                <span><i class="far fa-calendar" aria-hidden="true"></i> Jun 14, 2025</span>
+                <span><i class="far fa-clock" aria-hidden="true"></i> 8 min</span>
+              </div>
+              <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Article 5 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <article class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=75"
+                 alt="Python libraries for data science"
+                 loading="lazy" width="600" height="200" />
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-category-tag" style="color:#16a34a;background:linear-gradient(135deg,#f0fdf4,#dcfce7);">Data Science</span>
+            <h3 class="blog-card-title">Top 10 Python Libraries Every Data Scientist Needs</h3>
+            <p class="blog-card-desc">From NumPy and Pandas to Scikit-learn and TensorFlow, these Python libraries form the essential toolkit of every data scientist. We explain what each one does and when to use it with practical code examples.</p>
+            <div class="blog-card-meta">
+              <div class="blog-meta-info">
+                <span><i class="far fa-calendar" aria-hidden="true"></i> Jun 10, 2025</span>
+                <span><i class="far fa-clock" aria-hidden="true"></i> 7 min</span>
+              </div>
+              <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Article 6 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+        <article class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=75"
+                 alt="Building a design portfolio from scratch"
+                 loading="lazy" width="600" height="200" />
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-category-tag" style="color:#9333ea;background:linear-gradient(135deg,#fdf2f8,#f5d0fe);">Design</span>
+            <h3 class="blog-card-title">How to Build Your Design Portfolio from Scratch</h3>
+            <p class="blog-card-desc">A strong portfolio is your most powerful job-hunting tool as a designer. This guide walks you through choosing the right projects, presenting your work compellingly, and getting noticed by top design studios and agencies.</p>
+            <div class="blog-card-meta">
+              <div class="blog-meta-info">
+                <span><i class="far fa-calendar" aria-hidden="true"></i> Jun 5, 2025</span>
+                <span><i class="far fa-clock" aria-hidden="true"></i> 6 min</span>
+              </div>
+              <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Article 7 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+        <article class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&q=75"
+                 alt="Digital marketing strategies 2025"
+                 loading="lazy" width="600" height="200" />
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-category-tag" style="color:#dc2626;background:linear-gradient(135deg,#fef2f2,#fecaca);">Marketing</span>
+            <h3 class="blog-card-title">Digital Marketing Strategies That Actually Work in 2025</h3>
+            <p class="blog-card-desc">Cutting through the noise in digital marketing has never been harder. We share battle-tested strategies covering SEO, content marketing, paid social, and email automation that deliver real, measurable results in today's landscape.</p>
+            <div class="blog-card-meta">
+              <div class="blog-meta-info">
+                <span><i class="far fa-calendar" aria-hidden="true"></i> May 30, 2025</span>
+                <span><i class="far fa-clock" aria-hidden="true"></i> 8 min</span>
+              </div>
+              <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Article 8 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <article class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=75"
+                 alt="Consistent practice for learning English"
+                 loading="lazy" width="600" height="200" />
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-category-tag" style="color:#1d4ed8;background:linear-gradient(135deg,#eff6ff,#bfdbfe);">English</span>
+            <h3 class="blog-card-title">The Power of Consistent Practice in Learning English</h3>
+            <p class="blog-card-desc">Fluency doesn't come from cramming — it comes from daily, deliberate practice. Discover the science-backed habits, routines, and techniques that make language learning stick, so you can speak English with confidence faster than you think.</p>
+            <div class="blog-card-meta">
+              <div class="blog-meta-info">
+                <span><i class="far fa-calendar" aria-hidden="true"></i> May 25, 2025</span>
+                <span><i class="far fa-clock" aria-hidden="true"></i> 5 min</span>
+              </div>
+              <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Article 9 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+        <article class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=75"
+                 alt="Project-based learning in education"
+                 loading="lazy" width="600" height="200" />
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-category-tag" style="color:#059669;background:linear-gradient(135deg,#ecfdf5,#d1fae5);">Education</span>
+            <h3 class="blog-card-title">Why Project-Based Learning is the Future of Education</h3>
+            <p class="blog-card-desc">Traditional lecture-style learning is giving way to project-based approaches that better prepare students for real-world challenges. We explore the research, the benefits, and how DemoTube integrates PBL into every course.</p>
+            <div class="blog-card-meta">
+              <div class="blog-meta-info">
+                <span><i class="far fa-calendar" aria-hidden="true"></i> May 20, 2025</span>
+                <span><i class="far fa-clock" aria-hidden="true"></i> 7 min</span>
+              </div>
+              <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <!-- ===================== PAGINATION ===================== -->
+    <nav class="pagination-custom" aria-label="Blog pagination">
+      <a href="#" class="page-btn page-btn-nav" aria-label="Previous page">
+        <i class="fas fa-chevron-left" aria-hidden="true"></i> Prev
+      </a>
+      <a href="#" class="page-btn active" aria-current="page" aria-label="Page 1">1</a>
+      <a href="#" class="page-btn" aria-label="Page 2">2</a>
+      <a href="#" class="page-btn" aria-label="Page 3">3</a>
+      <a href="#" class="page-btn" aria-label="Page 4">4</a>
+      <a href="#" class="page-btn page-btn-nav" aria-label="Next page">
+        Next <i class="fas fa-chevron-right" aria-hidden="true"></i>
+      </a>
+    </nav>
+  </div>
+</section>
+
+<!-- ===================== NEWSLETTER ===================== -->
+<section class="section-padding bg-white-section" aria-labelledby="newsletter-heading">
+  <div class="container">
+    <div class="newsletter-section" data-aos="fade-up">
+      <div class="newsletter-icon" aria-hidden="true"><i class="fas fa-envelope-open-text"></i></div>
+      <h2 class="section-title" id="newsletter-heading">Stay Updated with <span class="gradient-text">New Courses</span></h2>
+      <p class="section-subtitle mb-4">Subscribe to our newsletter and get notified about new courses, promotions, and educational tips.</p>
+      <form id="newsletterForm" action="#" novalidate aria-label="Newsletter subscription">
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email address…" aria-label="Email address" required />
+          <button type="submit" class="btn-primary-custom" style="border-radius:50px;white-space:nowrap;">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i> Subscribe
+          </button>
+        </div>
+      </form>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:12px;">
+        <i class="fas fa-lock" aria-hidden="true"></i> No spam, ever. Unsubscribe at any time.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-md-6 col-lg-4">
+        <div class="footer-brand" aria-label="DemoTube">
+          <div class="brand-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+          Demo<span style="color:var(--secondary);">Tube</span>
+        </div>
+        <p class="footer-desc">Empowering learners worldwide with expert-led courses, practical projects, and lifetime access to world-class education.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Quick Links</h3>
+        <nav aria-label="Footer navigation">
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Home</a></li>
+            <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Courses</a></li>
+            <li><a href="teachers.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Teachers</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> About</a></li>
+            <li><a href="blog.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Blog</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Contact</a></li>
+            <li><a href="faq.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Categories</h3>
+        <ul class="footer-links">
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Programming</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Web Dev</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> AI &amp; ML</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Data Science</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Design</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Business</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> English</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="footer-contact-info">123 Learning Street, Education City, London EC1A 1BB, UK</div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-phone"></i></div>
+          <div class="footer-contact-info"><a href="tel:+441234567890" style="color:rgba(255,255,255,0.6);">+44 123 456 7890</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
+          <div class="footer-contact-info"><a href="mailto:hello@demotube.com" style="color:rgba(255,255,255,0.6);">hello@demotube.com</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
+          <div class="footer-contact-info">Mon – Fri: 9:00 AM – 6:00 PM</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 DemoTube. All rights reserved. Made with <span style="color:#ef4444;">♥</span> for learners worldwide.</p>
+      <div style="display:flex;gap:16px;">
+        <a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Privacy Policy</a>
+        <a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Terms of Service</a>
+        <a href="sitemap.xml" style="font-size:13px;color:rgba(255,255,255,0.4);">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button class="scroll-top-btn" aria-label="Scroll to top">
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<!-- Main JS -->
+<script src="js/main.js"></script>
+</body>
+</html>

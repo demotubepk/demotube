@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore all DemoTube courses – browse 200+ expert-led courses in programming, web development, AI, data science, design, business and more." />
+  <meta name="keywords" content="online courses, programming, web development, AI, data science, design, business, learn online" />
+  <meta name="author" content="DemoTube" />
+  <meta property="og:title" content="Courses – DemoTube Online Learning Platform" />
+  <meta property="og:description" content="Browse 200+ expert-led online courses. Filter by category, search by topic, and start learning today." />
+  <meta property="og:type" content="website" />
+  <title>Courses – DemoTube Online Learning Platform</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand-custom" aria-label="DemoTube Home">
+        <div class="brand-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+        Demo<span style="color:var(--secondary)">Tube</span>
+      </a>
+      <ul class="nav-menu" role="list">
+        <li><a href="index.html" class="nav-link-custom">Home</a></li>
+        <li><a href="courses.html" class="nav-link-custom active">Courses</a></li>
+        <li><a href="categories.html" class="nav-link-custom">Categories</a></li>
+        <li><a href="teachers.html" class="nav-link-custom">Teachers</a></li>
+        <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+        <li><a href="about.html" class="nav-link-custom">About</a></li>
+        <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" id="navSearchBtn" aria-label="Open search"><i class="fas fa-search"></i></button>
+        <button class="nav-icon-btn" data-theme-toggle aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+        <a href="courses.html" class="btn-primary-custom d-none d-md-inline-flex" style="padding:10px 22px;font-size:13px;">Get Started</a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav">
+  <div class="container">
+    <a href="index.html" class="nav-link-custom">Home</a>
+    <a href="courses.html" class="nav-link-custom active">Courses</a>
+    <a href="categories.html" class="nav-link-custom">Categories</a>
+    <a href="teachers.html" class="nav-link-custom">Teachers</a>
+    <a href="blog.html" class="nav-link-custom">Blog</a>
+    <a href="about.html" class="nav-link-custom">About</a>
+    <a href="contact.html" class="nav-link-custom">Contact</a>
+    <a href="faq.html" class="nav-link-custom">FAQ</a>
+    <div style="padding:12px 24px;"><a href="courses.html" class="btn-primary-custom" style="width:100%;justify-content:center;">Get Started</a></div>
+  </div>
+</div>
+
+<!-- Search Overlay -->
+<div id="searchOverlay" style="display:none;opacity:0;position:fixed;inset:0;background:rgba(15,23,42,0.85);backdrop-filter:blur(8px);z-index:2000;align-items:center;justify-content:center;padding:24px;transition:opacity 0.3s ease;">
+  <div style="width:100%;max-width:600px;position:relative;">
+    <button id="searchClose" style="position:absolute;top:-50px;right:0;background:transparent;border:none;color:white;font-size:24px;cursor:pointer;"><i class="fas fa-times"></i></button>
+    <div style="position:relative;"><i class="fas fa-search" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);color:#64748b;font-size:18px;"></i><input id="globalSearch" type="text" placeholder="Search courses, topics, teachers…" style="width:100%;padding:18px 20px 18px 52px;background:white;border:none;border-radius:16px;font-size:18px;font-family:var(--font-body);outline:none;color:#1e293b;" /></div>
+    <p style="color:rgba(255,255,255,0.5);font-size:14px;margin-top:12px;text-align:center;">Press ESC to close</p>
+  </div>
+</div>
+
+<!-- ===================== PAGE HERO ===================== -->
+<section class="page-hero" aria-label="Courses page hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8" data-aos="fade-up">
+        <span class="section-label" style="background:rgba(255,255,255,0.15);color:white;margin-bottom:20px;">200+ Courses Available</span>
+        <h1 class="page-hero-title">Explore Our <span style="color:#93c5fd;">Courses</span></h1>
+        <p class="page-hero-desc">Choose from hundreds of expert-led courses across programming, design, business, AI and more. Start learning today and transform your career.</p>
+        <nav aria-label="breadcrumb">
+          <div class="breadcrumb-custom">
+            <a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Home</a>
+            <span class="sep" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+            <span class="current">Courses</span>
+          </div>
+        </nav>
+      </div>
+      <div class="col-lg-4 d-none d-lg-block" data-aos="fade-left" data-aos-delay="200">
+        <div class="text-center">
+          <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
+            <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:16px;padding:20px 24px;text-align:center;">
+              <div style="font-size:32px;font-weight:900;color:white;font-family:var(--font-heading);">200+</div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.7);">Expert Courses</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:16px;padding:20px 24px;text-align:center;">
+              <div style="font-size:32px;font-weight:900;color:white;font-family:var(--font-heading);">50K+</div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.7);">Students</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:16px;padding:20px 24px;text-align:center;">
+              <div style="font-size:32px;font-weight:900;color:white;font-family:var(--font-heading);">4.8★</div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.7);">Avg. Rating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COURSES SECTION ===================== -->
+<section class="section-padding bg-section" aria-labelledby="courses-heading">
+  <div class="container">
+
+    <!-- Search & Filter Bar -->
+    <div class="search-filter-bar" data-aos="fade-up">
+      <div class="row g-3 align-items-center">
+        <div class="col-lg-5">
+          <div class="search-input-wrapper">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input
+              type="text"
+              id="courseSearch"
+              placeholder="Search courses, topics, instructors…"
+              aria-label="Search courses"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="d-flex flex-wrap gap-2" role="group" aria-label="Filter courses by category">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="programming">Programming</button>
+            <button class="filter-btn" data-filter="web-development">Web Development</button>
+            <button class="filter-btn" data-filter="ai-machine-learning">AI &amp; ML</button>
+            <button class="filter-btn" data-filter="data-science">Data Science</button>
+            <button class="filter-btn" data-filter="mathematics">Mathematics</button>
+            <button class="filter-btn" data-filter="design">Design</button>
+            <button class="filter-btn" data-filter="business">Business</button>
+            <button class="filter-btn" data-filter="english">English</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Info -->
+    <div class="d-flex align-items-center justify-content-between mb-4" data-aos="fade-up">
+      <p style="font-size:15px;color:var(--text-secondary);margin:0;">Showing <strong style="color:var(--text-primary);">12</strong> of <strong style="color:var(--text-primary);">200+</strong> courses</p>
+      <div class="d-flex align-items-center gap-2">
+        <span style="font-size:14px;color:var(--text-muted);">Sort by:</span>
+        <select style="padding:8px 14px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-card);color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;cursor:pointer;" aria-label="Sort courses">
+          <option>Most Popular</option>
+          <option>Highest Rated</option>
+          <option>Newest First</option>
+          <option>A-Z</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Course Grid -->
+    <div class="row g-4" id="courseGrid" aria-label="Course listings">
+
+      <!-- Course 1: HTML & CSS Masterclass -->
+      <div class="col-md-6 col-lg-4 course-item" data-category="programming" data-aos="fade-up" data-aos-delay="50">
+        <div class="course-card h-100">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=600&q=75" alt="HTML and CSS Masterclass course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-beginner">Beginner</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 24h 30m</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 120 Lessons</span>
+            </div>
+            <h3 class="course-card-title">HTML &amp; CSS Masterclass</h3>
+            <p class="course-card-desc">Master the building blocks of the web from scratch. Learn semantic HTML, Flexbox, CSS Grid, animations, and responsive design.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=75" alt="Instructor Sarah Mitchell" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Sarah Mitchell</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.9 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.9</span>
+              <span class="rating-count">(2,341 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-free">Free</span>
+              <a href="course-details.html" class="course-btn">View Course <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 2: JavaScript Fundamentals -->
+      <div class="col-md-6 col-lg-4 course-item" data-category="web-development" data-aos="fade-up" data-aos-delay="100">
+        <div class="course-card h-100">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=600&q=75" alt="JavaScript Fundamentals course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-beginner">Beginner</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 32h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 165 Lessons</span>
+            </div>
+            <h3 class="course-card-title">JavaScript Fundamentals</h3>
+            <p class="course-card-desc">Learn JavaScript from the ground up. Variables, functions, DOM manipulation, async/await, and real-world projects.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=75" alt="Instructor Mark Johnson" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Mark Johnson</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.8 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.8</span>
+              <span class="rating-count">(1,875 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-popular">Popular</span>
+              <a href="course-details.html" class="course-btn">View Course <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 3: Python for Beginners -->
+      <div class="col-md-6 col-lg-4 course-item" data-category="programming" data-aos="fade-up" data-aos-delay="150">
+        <div class="course-card h-100">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600&q=75" alt="Python for Beginners course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-beginner">Beginner</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 28h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 140 Lessons</span>
+            </div>
+            <h3 class="course-card-title">Python for Beginners</h3>
+            <p class="course-card-desc">Start your programming journey with Python. Data types, control flow, OOP, file handling, and mini projects.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&q=75" alt="Instructor Priya Sharma" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Priya Sharma</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.9 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.9</span>
+              <span class="rating-count">(3,102 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-free">Free</span>
+              <a href="course-details.html" class="course-btn">View Course <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 4: React Basics -->
+      <div class="col-md-6 col-lg-4 course-item" data-category="web-development" data-aos="fade-up" data-aos-delay="50">
+        <div class="course-card h-100">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&q=75" alt="React Basics course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-intermediate">Intermediate</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 36h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 180 Lessons</span>
+            </div>
+            <h3 class="course-card-title">React Basics to Advanced</h3>
+            <p class="course-card-desc">Build modern web applications with React. Hooks, state management, Router, and full-stack integration.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=80&q=75" alt="Instructor Alex Chen" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Alex Chen</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.7 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.7</span>
+              <span class="rating-count">(1,420 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-popular">Popular</span>
+              <a href="course-details.html" class="course-btn">View Course <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 5: Machine Learning Intro -->
+      <div class="col-md-6 col-lg-4 course-item" data-category="ai-machine-learning" data-aos="fade-up" data-aos-delay="100">
+        <div class="course-card h-100">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&q=75" alt="Machine Learning Introduction course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-intermediate">Intermediate</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 40h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 200 Lessons</span>
+            </div>
+            <h3 class="course-card-title">Machine Learning Introduction</h3>
+            <p class="course-card-desc">Explore ML algorithms, supervised and unsupervised learning, neural networks, and build your first ML model with Python.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&q=75" alt="Instructor Dr. James Wilson" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Dr. James Wilson</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.8 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.8</span>
+              <span class="rating-count">(2,780 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-popular">Popular</span>
+              <a href="course-details.html" class="course-btn">View Course <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 6: Data Analysis Excel -->
+      <div class="col-md-6 col-lg-4 course-item" data-category="data-science" data-aos="fade-up" data-aos-delay="150">
+        <div class="course-card h-100">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=75" alt="Data Analysis with Excel course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-beginner">Beginner</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 18h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 90 Lessons</span>
+            </div>
+            <h3 class="course-card-title">Data Analysis with Excel</h3>
+            <p class="course-card-desc">Transform raw data into insights using Excel. Pivot tables, charts, VLOOKUP, Power Query, and data visualization techniques.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=75" alt="Instructor Emily Roberts" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Emily Roberts</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.6 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.6</span>
+              <span class="rating-count">(987 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-free">Free</span>
+              <a href="course-details.html" class="course-btn">View Course <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 7: Digital Marketing -->
+      <div class="col-md-6 col-lg-4 course-item" data-category="business" data-aos="fade-up" data-aos-delay="50">
+        <div class="course-card h-100">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&q=75" alt="Digital Marketing Essentials course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-beginner">Beginner</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 22h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 110 Lessons</span>
+            </div>
+            <h3 class="course-card-title">Digital Marketing Essentials</h3>
+            <p class="course-card-desc">Learn SEO, social media marketing, email campaigns, Google Ads, and how to grow businesses online with measurable results.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=75" alt="Instructor Jessica Lee" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Jessica Lee</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.7 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.7</span>
+              <span class="rating-count">(1,234 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-popular">Popular</span>
+              <a href="course-details.html" class="course-btn">View Course <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 8: Graphic Design Basics -->
+      <div class="col-md-6 col-lg-4 course-item" data-category="design" data-aos="fade-up" data-aos-delay="100">
+        <div class="course-card h-100">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=75" alt="Graphic Design Basics course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-beginner">Beginner</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 20h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 100 Lessons</span>
+            </div>
+            <h3 class="course-card-title">Graphic Design Basics</h3>
+            <p class="course-card-desc">Master the principles of design with Figma and Canva. Typography, color theory, branding, and logo design from scratch.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=80&q=75" alt="Instructor Nina Patel" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Nina Patel</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.8 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.8</span>
+              <span class="rating-count">(1,560 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-free">Free</span>
+              <a href="course-details.html" class="course-btn">View Course <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 9: Spoken English -->
+      <div class="col-md-6 col-lg-4 course-item" data-category="english" data-aos="fade-up" data-aos-delay="150">
+        <div class="course-card h-100">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=75" alt="Spoken English Mastery course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-beginner">Beginner</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 16h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 80 Lessons</span>
+            </div>
+            <h3 class="course-card-title">Spoken English Mastery</h3>
+            <p class="course-card-desc">Build confidence speaking English fluently. Grammar, pronunciation, conversation practice, idioms, and vocabulary building.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=75" alt="Instructor Robert Davis" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Robert Davis</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.9 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.9</span>
+              <span class="rating-count">(4,120 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-popular">Popular</span>
+              <a href="course-details.html" class="course-btn">View Course <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 10: Node.js API Development -->
+      <div class="col-md-6 col-lg-4 course-item" data-category="web-development" data-aos="fade-up" data-aos-delay="50">
+        <div class="course-card h-100">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=75" alt="Node.js API Development course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-intermediate">Intermediate</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 38h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 190 Lessons</span>
+            </div>
+            <h3 class="course-card-title">Node.js API Development</h3>
+            <p class="course-card-desc">Build powerful REST APIs with Node.js, Express, and MongoDB. Authentication, middleware, deployment and best practices.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=80&q=75" alt="Instructor David Park" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">David Park</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.7 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.7</span>
+              <span class="rating-count">(1,089 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-popular">Popular</span>
+              <a href="course-details.html" class="course-btn">View Course <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 11: Algebra Fundamentals -->
+      <div class="col-md-6 col-lg-4 course-item" data-category="mathematics" data-aos="fade-up" data-aos-delay="100">
+        <div class="course-card h-100">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=75" alt="Algebra Fundamentals course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-beginner">Beginner</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 26h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 130 Lessons</span>
+            </div>
+            <h3 class="course-card-title">Algebra Fundamentals</h3>
+            <p class="course-card-desc">Build a solid foundation in algebra. Equations, inequalities, polynomials, functions, and real-world mathematical applications.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=80&q=75" alt="Instructor Prof. Anna Williams" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Prof. Anna Williams</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.8 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.8</span>
+              <span class="rating-count">(2,015 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-free">Free</span>
+              <a href="course-details.html" class="course-btn">View Course <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 12: Deep Learning -->
+      <div class="col-md-6 col-lg-4 course-item" data-category="ai-machine-learning" data-aos="fade-up" data-aos-delay="150">
+        <div class="course-card h-100">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=75" alt="Deep Learning course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-advanced">Advanced</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 52h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 260 Lessons</span>
+            </div>
+            <h3 class="course-card-title">Deep Learning Specialization</h3>
+            <p class="course-card-desc">Master neural networks, CNNs, RNNs, transformers, and build cutting-edge AI models with TensorFlow and PyTorch.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&q=75" alt="Instructor Dr. James Wilson" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Dr. James Wilson</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.9 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.9</span>
+              <span class="rating-count">(3,456 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-popular">Popular</span>
+              <a href="course-details.html" class="course-btn">View Course <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end row -->
+
+    <!-- No Results Message -->
+    <div id="noResultsMsg" style="display:none;text-align:center;padding:60px 20px;" aria-live="polite">
+      <div style="font-size:64px;margin-bottom:20px;">🔍</div>
+      <h3 style="font-family:var(--font-heading);font-weight:700;color:var(--text-primary);margin-bottom:12px;">No Courses Found</h3>
+      <p style="color:var(--text-secondary);font-size:16px;max-width:400px;margin:0 auto 24px;">We couldn't find any courses matching your search. Try different keywords or browse all categories.</p>
+      <button class="filter-btn active" data-filter="all" onclick="document.getElementById('courseSearch').value='';document.querySelectorAll('.course-item').forEach(c=>c.style.display='');document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');document.getElementById('noResultsMsg').style.display='none';">
+        <i class="fas fa-th-large"></i> Browse All Courses
+      </button>
+    </div>
+
+    <!-- Pagination -->
+    <nav class="pagination-custom" aria-label="Course pagination" data-aos="fade-up">
+      <a href="#" class="page-btn" aria-label="Previous page">
+        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+      </a>
+      <a href="#" class="page-btn active" aria-current="page" aria-label="Page 1">1</a>
+      <a href="#" class="page-btn" aria-label="Page 2">2</a>
+      <a href="#" class="page-btn" aria-label="Page 3">3</a>
+      <a href="#" class="page-btn" aria-label="Page 4">4</a>
+      <a href="#" class="page-btn" aria-label="Page 5">5</a>
+      <span class="page-btn" style="cursor:default;pointer-events:none;" aria-hidden="true">…</span>
+      <a href="#" class="page-btn" aria-label="Page 17">17</a>
+      <a href="#" class="page-btn" aria-label="Next page">
+        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+      </a>
+    </nav>
+
+  </div>
+</section>
+
+<!-- ===================== WHY LEARN WITH US ===================== -->
+<section class="section-padding bg-white-section" aria-labelledby="why-section-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Platform Benefits</span>
+      <h2 class="section-title" id="why-section-heading">Why Learn on <span class="gradient-text">DemoTube?</span></h2>
+      <p class="section-subtitle">Everything you need to succeed, all in one place</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
+        <div class="feature-card text-center h-100">
+          <div class="feature-icon"><i class="fas fa-infinity" aria-hidden="true"></i></div>
+          <h4>Lifetime Access</h4>
+          <p>Once enrolled, you own the course forever – including all future updates at no extra cost.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-card text-center h-100">
+          <div class="feature-icon"><i class="fas fa-certificate" aria-hidden="true"></i></div>
+          <h4>Certificates</h4>
+          <p>Earn shareable certificates upon completion to showcase your new skills to employers.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+        <div class="feature-card text-center h-100">
+          <div class="feature-icon"><i class="fas fa-mobile-alt" aria-hidden="true"></i></div>
+          <h4>Learn Anywhere</h4>
+          <p>Access courses on any device – desktop, tablet or mobile – wherever you are, whenever you want.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-card text-center h-100">
+          <div class="feature-icon"><i class="fas fa-users" aria-hidden="true"></i></div>
+          <h4>Community Support</h4>
+          <p>Join a thriving community of 50,000+ learners. Get help, share progress, and network globally.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NEWSLETTER ===================== -->
+<section class="section-padding bg-section" aria-label="Newsletter signup">
+  <div class="container">
+    <div class="newsletter-section" data-aos="fade-up">
+      <div class="newsletter-icon" aria-hidden="true"><i class="fas fa-paper-plane"></i></div>
+      <h2 class="section-title">Never Miss a New Course</h2>
+      <p class="section-subtitle" style="margin-bottom:32px;">Subscribe to our newsletter and be the first to know about new courses, free webinars, and exclusive learning resources.</p>
+      <form class="newsletter-form" id="newsletterForm" aria-label="Newsletter subscription form">
+        <input type="email" placeholder="Enter your email address…" aria-label="Email address" required />
+        <button type="submit" class="btn-primary-custom" style="border-radius:50px;padding:12px 28px;font-size:14px;">Subscribe</button>
+      </form>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:16px;">No spam, ever. Unsubscribe at any time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-md-6 col-lg-4">
+        <div class="footer-brand"><div class="brand-icon"><i class="fas fa-play"></i></div>Demo<span style="color:var(--secondary);">Tube</span></div>
+        <p class="footer-desc">Empowering learners worldwide with expert-led courses, practical projects, and lifetime access to world-class education.</p>
+        <div class="footer-social">
+          <a href="#" class="footer-social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+          <li><a href="teachers.html"><i class="fas fa-chevron-right"></i> Teachers</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+          <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Categories</h3>
+        <ul class="footer-links">
+          <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Programming</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Web Dev</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right"></i> AI &amp; ML</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Data Science</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Design</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Business</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="footer-contact-info">123 Learning Street, London EC1A 1BB, UK</div></div>
+        <div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-phone"></i></div><div class="footer-contact-info">+44 123 456 7890</div></div>
+        <div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-envelope"></i></div><div class="footer-contact-info">hello@demotube.com</div></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 DemoTube. All rights reserved.</p>
+      <div style="display:flex;gap:16px;"><a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Privacy Policy</a><a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Terms of Service</a></div>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top-btn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

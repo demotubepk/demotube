@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DemoTube – Learn Anything, Anytime, Anywhere. The world's best online learning platform with expert teachers, high-quality videos, and practical projects." />
+  <meta name="keywords" content="online learning, courses, education, programming, web development, AI, data science" />
+  <meta name="author" content="DemoTube" />
+  <meta property="og:title" content="DemoTube – Online Learning Platform" />
+  <meta property="og:description" content="Learn anything, anytime, anywhere with DemoTube." />
+  <meta property="og:type" content="website" />
+  <title>DemoTube – Learn Anything, Anytime, Anywhere</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand-custom" aria-label="DemoTube Home">
+        <div class="brand-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+        Demo<span style="color:var(--secondary)">Tube</span>
+      </a>
+
+      <ul class="nav-menu" role="list">
+        <li><a href="index.html" class="nav-link-custom active">Home</a></li>
+        <li><a href="courses.html" class="nav-link-custom">Courses</a></li>
+        <li><a href="categories.html" class="nav-link-custom">Categories</a></li>
+        <li><a href="teachers.html" class="nav-link-custom">Teachers</a></li>
+        <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+        <li><a href="about.html" class="nav-link-custom">About</a></li>
+        <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-icon-btn" id="navSearchBtn" aria-label="Open search">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </button>
+        <button class="nav-icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+        <a href="courses.html" class="btn-primary-custom d-none d-md-inline-flex" style="padding:10px 22px;font-size:13px;">
+          Get Started
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+  <div class="container">
+    <a href="index.html" class="nav-link-custom active">Home</a>
+    <a href="courses.html" class="nav-link-custom">Courses</a>
+    <a href="categories.html" class="nav-link-custom">Categories</a>
+    <a href="teachers.html" class="nav-link-custom">Teachers</a>
+    <a href="blog.html" class="nav-link-custom">Blog</a>
+    <a href="about.html" class="nav-link-custom">About</a>
+    <a href="contact.html" class="nav-link-custom">Contact</a>
+    <a href="faq.html" class="nav-link-custom">FAQ</a>
+    <div style="padding:12px 24px;">
+      <a href="courses.html" class="btn-primary-custom" style="width:100%;justify-content:center;">Get Started</a>
+    </div>
+  </div>
+</div>
+
+<!-- Search Overlay -->
+<div id="searchOverlay" style="display:none;opacity:0;position:fixed;inset:0;background:rgba(15,23,42,0.85);backdrop-filter:blur(8px);z-index:2000;align-items:center;justify-content:center;padding:24px;transition:opacity 0.3s ease;">
+  <div style="width:100%;max-width:600px;position:relative;">
+    <button id="searchClose" style="position:absolute;top:-50px;right:0;background:transparent;border:none;color:white;font-size:24px;cursor:pointer;" aria-label="Close search"><i class="fas fa-times"></i></button>
+    <div style="position:relative;">
+      <i class="fas fa-search" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);color:#64748b;font-size:18px;"></i>
+      <input id="globalSearch" type="text" placeholder="Search courses, topics, teachers…" aria-label="Global search" style="width:100%;padding:18px 20px 18px 52px;background:white;border:none;border-radius:16px;font-size:18px;font-family:var(--font-body);outline:none;color:#1e293b;" />
+    </div>
+    <p style="color:rgba(255,255,255,0.5);font-size:14px;margin-top:12px;text-align:center;">Press ESC to close</p>
+  </div>
+</div>
+
+<!-- ===================== HERO SECTION ===================== -->
+<section class="hero-section" id="home" aria-label="Hero">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-fire text-warning" aria-hidden="true"></i>
+            <span>50,000+</span> students learning now
+          </div>
+
+          <h1 class="hero-title">
+            Learn <span class="gradient-text">Anything</span>,<br>
+            Anytime, <span class="gradient-text">Anywhere</span>
+          </h1>
+
+          <p class="hero-desc">
+            Access world-class courses taught by expert instructors. Build real skills with hands-on projects, lifetime access, and a vibrant learning community.
+          </p>
+
+          <div class="hero-btn-group d-flex flex-wrap gap-3">
+            <a href="courses.html" class="btn-primary-custom">
+              <i class="fas fa-rocket" aria-hidden="true"></i> Explore Courses
+            </a>
+            <a href="categories.html" class="btn-outline-custom">
+              <i class="fas fa-th" aria-hidden="true"></i> Browse Categories
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat-item">
+              <span class="stat-number">200+</span>
+              <span class="stat-label">Expert Courses</span>
+            </div>
+            <div class="hero-stat-divider" aria-hidden="true"></div>
+            <div class="hero-stat-item">
+              <span class="stat-number">50K+</span>
+              <span class="stat-label">Active Students</span>
+            </div>
+            <div class="hero-stat-divider" aria-hidden="true"></div>
+            <div class="hero-stat-item">
+              <span class="stat-number">40+</span>
+              <span class="stat-label">Expert Teachers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="hero-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=80"
+               alt="Students learning online with laptops and tablets"
+               loading="eager"
+               width="700" height="500" />
+
+          <!-- Floating Cards -->
+          <div class="hero-floating-card card-1" aria-hidden="true">
+            <div class="floating-card-icon" style="background:linear-gradient(135deg,#10b981,#059669);color:white;">
+              <i class="fas fa-award"></i>
+            </div>
+            <div class="floating-card-text">
+              <span class="label">Achievements</span>
+              <span class="value">New Badge!</span>
+            </div>
+          </div>
+
+          <div class="hero-floating-card card-2" aria-hidden="true">
+            <div class="floating-card-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706);color:white;">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="floating-card-text">
+              <span class="label">Avg Rating</span>
+              <span class="value">4.9 / 5.0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRUSTED BY ===================== -->
+<section style="padding:32px 0;border-top:1px solid var(--border-color);border-bottom:1px solid var(--border-color);background:var(--bg-secondary);" aria-label="Trusted by">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 text-center">
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px;font-weight:500;letter-spacing:1px;text-transform:uppercase;">Trusted by students from leading organizations</p>
+        <div class="d-flex flex-wrap align-items-center justify-content-center gap-4" style="opacity:0.5;">
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:20px;color:var(--text-primary);">Google</span>
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:20px;color:var(--text-primary);">Microsoft</span>
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:20px;color:var(--text-primary);">Meta</span>
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:20px;color:var(--text-primary);">Amazon</span>
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:20px;color:var(--text-primary);">Apple</span>
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:20px;color:var(--text-primary);">Netflix</span>
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:20px;color:var(--text-primary);">Spotify</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURED CATEGORIES ===================== -->
+<section class="section-padding bg-white-section" id="categories" aria-labelledby="categories-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Explore Topics</span>
+      <h2 class="section-title" id="categories-heading">Featured <span class="gradient-text">Categories</span></h2>
+      <p class="section-subtitle">Choose from 12+ categories covering everything from technology to creative arts</p>
+    </div>
+
+    <div class="row g-3">
+      <!-- Programming -->
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="50">
+        <a href="courses.html" class="text-decoration-none">
+          <div class="category-card h-100">
+            <div class="category-icon" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);">
+              <i class="fas fa-code" style="color:#2563eb;"></i>
+            </div>
+            <h5>Programming</h5>
+            <p>Python, Java, C++</p>
+            <span class="course-count">42 Courses</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Web Dev -->
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="100">
+        <a href="courses.html" class="text-decoration-none">
+          <div class="category-card h-100">
+            <div class="category-icon" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);">
+              <i class="fas fa-globe" style="color:#10b981;"></i>
+            </div>
+            <h5>Web Dev</h5>
+            <p>HTML, CSS, JS</p>
+            <span class="course-count">38 Courses</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- AI -->
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="150">
+        <a href="courses.html" class="text-decoration-none">
+          <div class="category-card h-100">
+            <div class="category-icon" style="background:linear-gradient(135deg,#fef3c7,#fde68a);">
+              <i class="fas fa-brain" style="color:#d97706;"></i>
+            </div>
+            <h5>Artificial Intelligence</h5>
+            <p>ML, Deep Learning</p>
+            <span class="course-count">25 Courses</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Data Science -->
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="200">
+        <a href="courses.html" class="text-decoration-none">
+          <div class="category-card h-100">
+            <div class="category-icon" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);">
+              <i class="fas fa-chart-line" style="color:#16a34a;"></i>
+            </div>
+            <h5>Data Science</h5>
+            <p>Analytics, SQL</p>
+            <span class="course-count">30 Courses</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Mathematics -->
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="250">
+        <a href="courses.html" class="text-decoration-none">
+          <div class="category-card h-100">
+            <div class="category-icon" style="background:linear-gradient(135deg,#fdf2f8,#fce7f3);">
+              <i class="fas fa-square-root-variable" style="color:#db2777;"></i>
+            </div>
+            <h5>Mathematics</h5>
+            <p>Algebra, Calculus</p>
+            <span class="course-count">22 Courses</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Physics -->
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="300">
+        <a href="courses.html" class="text-decoration-none">
+          <div class="category-card h-100">
+            <div class="category-icon" style="background:linear-gradient(135deg,#fff7ed,#ffedd5);">
+              <i class="fas fa-atom" style="color:#ea580c;"></i>
+            </div>
+            <h5>Physics</h5>
+            <p>Mechanics, Optics</p>
+            <span class="course-count">18 Courses</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Chemistry -->
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="350">
+        <a href="courses.html" class="text-decoration-none">
+          <div class="category-card h-100">
+            <div class="category-icon" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);">
+              <i class="fas fa-flask" style="color:#059669;"></i>
+            </div>
+            <h5>Chemistry</h5>
+            <p>Organic, Inorganic</p>
+            <span class="course-count">15 Courses</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Biology -->
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="400">
+        <a href="courses.html" class="text-decoration-none">
+          <div class="category-card h-100">
+            <div class="category-icon" style="background:linear-gradient(135deg,#f0fdf4,#bbf7d0);">
+              <i class="fas fa-dna" style="color:#15803d;"></i>
+            </div>
+            <h5>Biology</h5>
+            <p>Cell, Genetics</p>
+            <span class="course-count">17 Courses</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- English -->
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="450">
+        <a href="courses.html" class="text-decoration-none">
+          <div class="category-card h-100">
+            <div class="category-icon" style="background:linear-gradient(135deg,#eff6ff,#bfdbfe);">
+              <i class="fas fa-book-open" style="color:#1d4ed8;"></i>
+            </div>
+            <h5>English</h5>
+            <p>Grammar, Speaking</p>
+            <span class="course-count">20 Courses</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Design -->
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="500">
+        <a href="courses.html" class="text-decoration-none">
+          <div class="category-card h-100">
+            <div class="category-icon" style="background:linear-gradient(135deg,#fdf2f8,#f5d0fe);">
+              <i class="fas fa-palette" style="color:#9333ea;"></i>
+            </div>
+            <h5>Graphic Design</h5>
+            <p>Figma, Photoshop</p>
+            <span class="course-count">16 Courses</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Business -->
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="550">
+        <a href="courses.html" class="text-decoration-none">
+          <div class="category-card h-100">
+            <div class="category-icon" style="background:linear-gradient(135deg,#fefce8,#fef08a);">
+              <i class="fas fa-briefcase" style="color:#ca8a04;"></i>
+            </div>
+            <h5>Business</h5>
+            <p>Management, Finance</p>
+            <span class="course-count">28 Courses</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Digital Marketing -->
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="600">
+        <a href="courses.html" class="text-decoration-none">
+          <div class="category-card h-100">
+            <div class="category-icon" style="background:linear-gradient(135deg,#fef2f2,#fecaca);">
+              <i class="fas fa-bullhorn" style="color:#dc2626;"></i>
+            </div>
+            <h5>Digital Marketing</h5>
+            <p>SEO, Social Media</p>
+            <span class="course-count">19 Courses</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="categories.html" class="btn-outline-custom">
+        <i class="fas fa-th-large" aria-hidden="true"></i> View All Categories
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURED COURSES ===================== -->
+<section class="section-padding bg-section" id="courses" aria-labelledby="courses-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Top Picks</span>
+      <h2 class="section-title" id="courses-heading">Featured <span class="gradient-text">Courses</span></h2>
+      <p class="section-subtitle">Handpicked courses designed to take you from beginner to expert</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Course 1 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=600&q=75" alt="HTML and CSS Masterclass course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-beginner">Beginner</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 24h 30m</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 120 Lessons</span>
+            </div>
+            <h3 class="course-card-title">HTML &amp; CSS Masterclass</h3>
+            <p class="course-card-desc">Master the building blocks of the web from scratch. Learn semantic HTML, Flexbox, CSS Grid, animations, and responsive design.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=75" alt="Instructor Sarah Mitchell" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Sarah Mitchell</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.9 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.9</span>
+              <span class="rating-count">(2,341 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-free">Free</span>
+              <a href="course-details.html" class="course-btn">
+                View Course <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 2 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=600&q=75" alt="JavaScript Fundamentals course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-beginner">Beginner</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 32h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 165 Lessons</span>
+            </div>
+            <h3 class="course-card-title">JavaScript Fundamentals</h3>
+            <p class="course-card-desc">Learn JavaScript from the ground up. Variables, functions, DOM manipulation, async/await, and real-world projects.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=75" alt="Instructor Mark Johnson" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Mark Johnson</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.8 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.8</span>
+              <span class="rating-count">(1,875 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-popular">Popular</span>
+              <a href="course-details.html" class="course-btn">
+                View Course <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 3 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600&q=75" alt="Python for Beginners course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-beginner">Beginner</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 28h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 140 Lessons</span>
+            </div>
+            <h3 class="course-card-title">Python for Beginners</h3>
+            <p class="course-card-desc">Start your programming journey with Python. Data types, control flow, OOP, file handling, and mini projects.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&q=75" alt="Instructor Priya Sharma" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Priya Sharma</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.9 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.9</span>
+              <span class="rating-count">(3,102 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-free">Free</span>
+              <a href="course-details.html" class="course-btn">
+                View Course <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 4 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&q=75" alt="React Basics course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-intermediate">Intermediate</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 36h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 180 Lessons</span>
+            </div>
+            <h3 class="course-card-title">React Basics to Advanced</h3>
+            <p class="course-card-desc">Build modern web applications with React. Hooks, state management, Router, and full-stack integration.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=80&q=75" alt="Instructor Alex Chen" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Alex Chen</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.7 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.7</span>
+              <span class="rating-count">(1,420 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-popular">Popular</span>
+              <a href="course-details.html" class="course-btn">
+                View Course <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 5 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&q=75" alt="Machine Learning Introduction course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-intermediate">Intermediate</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 40h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 200 Lessons</span>
+            </div>
+            <h3 class="course-card-title">Machine Learning Introduction</h3>
+            <p class="course-card-desc">Explore ML algorithms, supervised and unsupervised learning, neural networks, and build your first ML model.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&q=75" alt="Instructor Dr. James Wilson" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Dr. James Wilson</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.8 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.8</span>
+              <span class="rating-count">(2,780 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-popular">Popular</span>
+              <a href="course-details.html" class="course-btn">
+                View Course <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 6 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=75" alt="Data Analysis with Excel course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-beginner">Beginner</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 18h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 90 Lessons</span>
+            </div>
+            <h3 class="course-card-title">Data Analysis with Excel</h3>
+            <p class="course-card-desc">Transform raw data into insights using Excel. Pivot tables, charts, VLOOKUP, and data visualization techniques.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=75" alt="Instructor Emily Roberts" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Emily Roberts</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.6 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.6</span>
+              <span class="rating-count">(987 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-free">Free</span>
+              <a href="course-details.html" class="course-btn">
+                View Course <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 7 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="350">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&q=75" alt="Digital Marketing Essentials course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-beginner">Beginner</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 22h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 110 Lessons</span>
+            </div>
+            <h3 class="course-card-title">Digital Marketing Essentials</h3>
+            <p class="course-card-desc">Learn SEO, social media marketing, email campaigns, Google Ads, and how to grow businesses online.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=75" alt="Instructor Jessica Lee" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Jessica Lee</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.7 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.7</span>
+              <span class="rating-count">(1,234 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-popular">Popular</span>
+              <a href="course-details.html" class="course-btn">
+                View Course <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 8 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=75" alt="Graphic Design Basics course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-beginner">Beginner</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 20h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 100 Lessons</span>
+            </div>
+            <h3 class="course-card-title">Graphic Design Basics</h3>
+            <p class="course-card-desc">Master the principles of design with Figma and Canva. Typography, color theory, branding, and logo design.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=80&q=75" alt="Instructor Nina Patel" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Nina Patel</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.8 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.8</span>
+              <span class="rating-count">(1,560 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-free">Free</span>
+              <a href="course-details.html" class="course-btn">
+                View Course <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 9 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="450">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=75" alt="Spoken English course thumbnail" loading="lazy" width="600" height="200" />
+            <span class="course-badge badge-beginner">Beginner</span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-meta">
+              <span><i class="far fa-clock" aria-hidden="true"></i> 16h</span>
+              <span><i class="fas fa-video" aria-hidden="true"></i> 80 Lessons</span>
+            </div>
+            <h3 class="course-card-title">Spoken English Mastery</h3>
+            <p class="course-card-desc">Build confidence in speaking English fluently. Grammar, pronunciation, conversation practice, and vocabulary building.</p>
+            <div class="course-card-instructor">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=75" alt="Instructor Robert Davis" loading="lazy" width="32" height="32" />
+              <span>By <strong class="course-instructor-name">Robert Davis</strong></span>
+            </div>
+            <div class="course-card-rating">
+              <span class="stars" aria-label="Rating 4.9 out of 5">★★★★★</span>
+              <span style="font-weight:600;color:var(--accent);">4.9</span>
+              <span class="rating-count">(4,120 reviews)</span>
+            </div>
+            <div class="course-card-footer">
+              <span class="badge-popular">Popular</span>
+              <a href="course-details.html" class="course-btn">
+                View Course <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="courses.html" class="btn-primary-custom">
+        <i class="fas fa-graduation-cap" aria-hidden="true"></i> View All Courses
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY CHOOSE US ===================== -->
+<section class="section-padding bg-white-section" aria-labelledby="features-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Why DemoTube</span>
+      <h2 class="section-title" id="features-heading">Why Choose <span class="gradient-text">DemoTube?</span></h2>
+      <p class="section-subtitle">Everything you need to accelerate your learning journey</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i></div>
+          <h4>Expert Teachers</h4>
+          <p>Learn from industry professionals with years of real-world experience in their respective fields.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-video" aria-hidden="true"></i></div>
+          <h4>High Quality Videos</h4>
+          <p>Crystal-clear HD video content with professional audio and engaging visual presentations.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-infinity" aria-hidden="true"></i></div>
+          <h4>Lifetime Access</h4>
+          <p>Learn at your own pace with lifetime access to all course materials, updates, and resources.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-file-download" aria-hidden="true"></i></div>
+          <h4>Downloadable Notes</h4>
+          <p>Get comprehensive notes, cheat sheets, and study materials you can download and keep forever.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
+          <h4>Practical Projects</h4>
+          <p>Build real-world projects that you can showcase in your portfolio and impress employers.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-mobile-alt" aria-hidden="true"></i></div>
+          <h4>Responsive Learning</h4>
+          <p>Access your courses on any device – desktop, tablet, or smartphone – anytime, anywhere.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LEARNING PROCESS ===================== -->
+<section class="section-padding bg-section" aria-labelledby="process-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title" id="process-heading">Your <span class="gradient-text">Learning Journey</span></h2>
+      <p class="section-subtitle">Four simple steps to transform your skills and career</p>
+    </div>
+    <div class="row g-4 position-relative">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
+        <div class="process-step">
+          <div class="process-step-number">1</div>
+          <div class="process-icon">📚</div>
+          <h4>Choose a Course</h4>
+          <p>Browse our curated library and find the perfect course that aligns with your goals.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+        <div class="process-step">
+          <div class="process-step-number">2</div>
+          <div class="process-icon">🎬</div>
+          <h4>Watch Lessons</h4>
+          <p>Enjoy engaging video lessons taught by expert instructors at your own pace.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
+        <div class="process-step">
+          <div class="process-step-number">3</div>
+          <div class="process-icon">🛠️</div>
+          <h4>Practice Projects</h4>
+          <p>Apply your knowledge through hands-on projects and real-world assignments.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="350">
+        <div class="process-step">
+          <div class="process-step-number">4</div>
+          <div class="process-icon">🏆</div>
+          <h4>Earn Skills</h4>
+          <p>Get certified and demonstrate your expertise to employers worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TEACHERS ===================== -->
+<section class="section-padding bg-white-section" id="teachers" aria-labelledby="teachers-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Meet the Experts</span>
+      <h2 class="section-title" id="teachers-heading">Our <span class="gradient-text">Star Teachers</span></h2>
+      <p class="section-subtitle">Learn from passionate educators who are leaders in their fields</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
+        <div class="teacher-card">
+          <div class="teacher-card-img">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=75" alt="Sarah Mitchell – Web Development instructor" loading="lazy" width="400" height="240" />
+            <div class="teacher-social-overlay" aria-hidden="true">
+              <a href="#" class="social-icon-btn"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon-btn"><i class="fab fa-linkedin"></i></a>
+              <a href="#" class="social-icon-btn"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="teacher-card-body">
+            <h4>Sarah Mitchell</h4>
+            <p class="specialty">Web Development</p>
+            <p class="bio">Senior web developer with 10+ years at top tech companies. Passionate about teaching modern CSS techniques.</p>
+            <div class="teacher-stats">
+              <div class="teacher-stat"><span class="ts-value">12</span><span class="ts-label">Courses</span></div>
+              <div class="teacher-stat"><span class="ts-value">8.2K</span><span class="ts-label">Students</span></div>
+              <div class="teacher-stat"><span class="ts-value">4.9 ★</span><span class="ts-label">Rating</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+        <div class="teacher-card">
+          <div class="teacher-card-img">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=75" alt="Priya Sharma – Python and AI instructor" loading="lazy" width="400" height="240" />
+            <div class="teacher-social-overlay" aria-hidden="true">
+              <a href="#" class="social-icon-btn"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon-btn"><i class="fab fa-linkedin"></i></a>
+              <a href="#" class="social-icon-btn"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="teacher-card-body">
+            <h4>Priya Sharma</h4>
+            <p class="specialty">Python &amp; AI</p>
+            <p class="bio">AI researcher and Python expert with a PhD in Machine Learning. Author of 3 published research papers.</p>
+            <div class="teacher-stats">
+              <div class="teacher-stat"><span class="ts-value">9</span><span class="ts-label">Courses</span></div>
+              <div class="teacher-stat"><span class="ts-value">12K</span><span class="ts-label">Students</span></div>
+              <div class="teacher-stat"><span class="ts-value">4.9 ★</span><span class="ts-label">Rating</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
+        <div class="teacher-card">
+          <div class="teacher-card-img">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=75" alt="Dr. James Wilson – Machine Learning instructor" loading="lazy" width="400" height="240" />
+            <div class="teacher-social-overlay" aria-hidden="true">
+              <a href="#" class="social-icon-btn"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon-btn"><i class="fab fa-linkedin"></i></a>
+              <a href="#" class="social-icon-btn"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="teacher-card-body">
+            <h4>Dr. James Wilson</h4>
+            <p class="specialty">Machine Learning</p>
+            <p class="bio">Former Google engineer turned educator. Specializes in making complex ML concepts accessible to everyone.</p>
+            <div class="teacher-stats">
+              <div class="teacher-stat"><span class="ts-value">7</span><span class="ts-label">Courses</span></div>
+              <div class="teacher-stat"><span class="ts-value">15K</span><span class="ts-label">Students</span></div>
+              <div class="teacher-stat"><span class="ts-value">4.8 ★</span><span class="ts-label">Rating</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="350">
+        <div class="teacher-card">
+          <div class="teacher-card-img">
+            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=75" alt="Nina Patel – Graphic Design instructor" loading="lazy" width="400" height="240" />
+            <div class="teacher-social-overlay" aria-hidden="true">
+              <a href="#" class="social-icon-btn"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon-btn"><i class="fab fa-linkedin"></i></a>
+              <a href="#" class="social-icon-btn"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="teacher-card-body">
+            <h4>Nina Patel</h4>
+            <p class="specialty">Graphic Design</p>
+            <p class="bio">Award-winning designer with clients including Fortune 500 companies. Expert in Figma and brand identity.</p>
+            <div class="teacher-stats">
+              <div class="teacher-stat"><span class="ts-value">6</span><span class="ts-label">Courses</span></div>
+              <div class="teacher-stat"><span class="ts-value">7.5K</span><span class="ts-label">Students</span></div>
+              <div class="teacher-stat"><span class="ts-value">4.8 ★</span><span class="ts-label">Rating</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="teachers.html" class="btn-outline-custom">
+        <i class="fas fa-users" aria-hidden="true"></i> Meet All Teachers
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="section-padding testimonials-section" aria-labelledby="testimonials-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label" style="background:rgba(255,255,255,0.15);color:white;">Student Reviews</span>
+      <h2 class="section-title" id="testimonials-heading" style="color:white;">What Our <span style="color:#bfdbfe;">Students Say</span></h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,0.7);">Join thousands of satisfied learners who transformed their careers</p>
+    </div>
+
+    <div class="swiper testimonial-swiper" aria-label="Student testimonials slider">
+      <div class="swiper-wrapper">
+        <!-- Testimonial 1 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-quote" aria-hidden="true">"</div>
+            <p class="testimonial-text">DemoTube completely changed my career. I went from knowing nothing about programming to landing a full-stack developer job in just 8 months. The courses are incredibly well structured!</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=75" alt="Student Ahmed Hassan" loading="lazy" width="52" height="52" />
+              <div class="testimonial-author-info">
+                <span class="name">Ahmed Hassan</span>
+                <span class="course">JavaScript Fundamentals</span>
+                <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-quote" aria-hidden="true">"</div>
+            <p class="testimonial-text">The Python for Beginners course is absolutely fantastic. Priya explains everything so clearly. I built my first web scraper after just 3 weeks of learning!</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&q=75" alt="Student Maria Garcia" loading="lazy" width="52" height="52" />
+              <div class="testimonial-author-info">
+                <span class="name">Maria Garcia</span>
+                <span class="course">Python for Beginners</span>
+                <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-quote" aria-hidden="true">"</div>
+            <p class="testimonial-text">I've tried many online platforms but DemoTube is the best. The course content is practical, the instructors are experts, and the community support is amazing!</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=100&q=75" alt="Student Karim Al-Rashid" loading="lazy" width="52" height="52" />
+              <div class="testimonial-author-info">
+                <span class="name">Karim Al-Rashid</span>
+                <span class="course">Machine Learning</span>
+                <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 4 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-quote" aria-hidden="true">"</div>
+            <p class="testimonial-text">The Graphic Design course helped me land my dream job as a UI designer. Nina's teaching style is engaging, fun, and highly practical. I highly recommend DemoTube!</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&q=75" alt="Student Sophia Kim" loading="lazy" width="52" height="52" />
+              <div class="testimonial-author-info">
+                <span class="name">Sophia Kim</span>
+                <span class="course">Graphic Design Basics</span>
+                <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 5 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-quote" aria-hidden="true">"</div>
+            <p class="testimonial-text">DemoTube's Data Science course gave me the skills to analyze data and present insights that saved my company thousands. The ROI from this course is incredible!</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=75" alt="Student David Chen" loading="lazy" width="52" height="52" />
+              <div class="testimonial-author-info">
+                <span class="name">David Chen</span>
+                <span class="course">Data Analysis with Excel</span>
+                <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination" aria-label="Slider navigation"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LATEST BLOG POSTS ===================== -->
+<section class="section-padding bg-white-section" id="blog" aria-labelledby="blog-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Latest Articles</span>
+      <h2 class="section-title" id="blog-heading">From Our <span class="gradient-text">Blog</span></h2>
+      <p class="section-subtitle">Tips, insights, and guides from our expert instructors</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=600&q=75" alt="Blog post about getting started with programming" loading="lazy" width="600" height="220" />
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-category-tag">Programming</span>
+            <h3 class="blog-card-title">10 Tips for Getting Started with Programming in 2025</h3>
+            <p class="blog-card-desc">Embarking on your coding journey can feel overwhelming. Here are the essential tips to kickstart your programming career effectively.</p>
+            <div class="blog-card-meta">
+              <div class="blog-meta-info">
+                <span><i class="far fa-calendar" aria-hidden="true"></i> Jun 28, 2025</span>
+                <span><i class="far fa-clock" aria-hidden="true"></i> 5 min read</span>
+              </div>
+              <a href="blog.html" class="blog-read-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=75" alt="Blog post about the future of AI in education" loading="lazy" width="600" height="220" />
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-category-tag">AI &amp; Education</span>
+            <h3 class="blog-card-title">How Artificial Intelligence is Transforming Online Learning</h3>
+            <p class="blog-card-desc">AI is reshaping education by personalizing learning paths, providing instant feedback, and predicting student success rates.</p>
+            <div class="blog-card-meta">
+              <div class="blog-meta-info">
+                <span><i class="far fa-calendar" aria-hidden="true"></i> Jun 20, 2025</span>
+                <span><i class="far fa-clock" aria-hidden="true"></i> 7 min read</span>
+              </div>
+              <a href="blog.html" class="blog-read-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&q=75" alt="Blog post about career change through online learning" loading="lazy" width="600" height="220" />
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-category-tag">Career Tips</span>
+            <h3 class="blog-card-title">How to Successfully Transition to a Tech Career in 2025</h3>
+            <p class="blog-card-desc">It's never too late to switch careers. Discover the roadmap for transitioning into a tech career and how online courses can help.</p>
+            <div class="blog-card-meta">
+              <div class="blog-meta-info">
+                <span><i class="far fa-calendar" aria-hidden="true"></i> Jun 12, 2025</span>
+                <span><i class="far fa-clock" aria-hidden="true"></i> 6 min read</span>
+              </div>
+              <a href="blog.html" class="blog-read-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="blog.html" class="btn-outline-custom">
+        <i class="fas fa-book-reader" aria-hidden="true"></i> Read All Articles
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NEWSLETTER ===================== -->
+<section class="section-padding bg-section" aria-labelledby="newsletter-heading">
+  <div class="container">
+    <div class="newsletter-section" data-aos="fade-up">
+      <div class="newsletter-icon" aria-hidden="true"><i class="fas fa-envelope-open-text"></i></div>
+      <h2 class="section-title" id="newsletter-heading">Stay Updated with <span class="gradient-text">New Courses</span></h2>
+      <p class="section-subtitle mb-4">Subscribe to our newsletter and get notified about new courses, promotions, and educational tips.</p>
+      <form id="newsletterForm" action="#" novalidate aria-label="Newsletter subscription">
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email address…" aria-label="Email address" required />
+          <button type="submit" class="btn-primary-custom" style="border-radius:50px;white-space:nowrap;">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i> Subscribe
+          </button>
+        </div>
+      </form>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:12px;">
+        <i class="fas fa-lock" aria-hidden="true"></i> No spam, ever. Unsubscribe at any time.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-md-6 col-lg-4">
+        <div class="footer-brand" aria-label="DemoTube">
+          <div class="brand-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+          Demo<span style="color:var(--secondary);">Tube</span>
+        </div>
+        <p class="footer-desc">Empowering learners worldwide with expert-led courses, practical projects, and lifetime access to world-class education.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Quick Links</h3>
+        <nav aria-label="Footer navigation">
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Home</a></li>
+            <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Courses</a></li>
+            <li><a href="teachers.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Teachers</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> About</a></li>
+            <li><a href="blog.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Blog</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Contact</a></li>
+            <li><a href="faq.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Categories</h3>
+        <ul class="footer-links">
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Programming</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Web Dev</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> AI & ML</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Data Science</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Design</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Business</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> English</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="footer-contact-info">123 Learning Street, Education City, London EC1A 1BB, UK</div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-phone"></i></div>
+          <div class="footer-contact-info"><a href="tel:+441234567890" style="color:rgba(255,255,255,0.6);">+44 123 456 7890</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
+          <div class="footer-contact-info"><a href="mailto:hello@demotube.com" style="color:rgba(255,255,255,0.6);">hello@demotube.com</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
+          <div class="footer-contact-info">Mon – Fri: 9:00 AM – 6:00 PM</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 DemoTube. All rights reserved. Made with <span style="color:#ef4444;">♥</span> for learners worldwide.</p>
+      <div style="display:flex;gap:16px;">
+        <a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Privacy Policy</a>
+        <a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Terms of Service</a>
+        <a href="sitemap.xml" style="font-size:13px;color:rgba(255,255,255,0.4);">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button class="scroll-top-btn" aria-label="Scroll to top">
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<!-- Main JS -->
+<script src="js/main.js"></script>
+</body>
+</html>

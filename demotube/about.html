@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about DemoTube – our mission, vision, team, and the story behind the world's best online learning platform." />
+  <meta name="keywords" content="about DemoTube, online learning, education platform, our team, mission" />
+  <meta name="author" content="DemoTube" />
+  <meta property="og:title" content="About DemoTube – Our Story & Mission" />
+  <meta property="og:description" content="Empowering learners since 2018. Learn about our mission, vision, team, and global impact." />
+  <meta property="og:type" content="website" />
+  <title>About Us – DemoTube Online Learning Platform</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    /* Page-specific styles */
+    .page-hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #0ea5e9 100%);
+      padding: 100px 0 70px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .page-hero-title {
+      font-family: var(--font-heading, 'Poppins', sans-serif);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .breadcrumb-custom {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+    }
+    .breadcrumb-custom a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb-custom a:hover { color: white; }
+    .breadcrumb-custom .sep { color: rgba(255,255,255,0.4); }
+    .breadcrumb-custom .current { color: white; font-weight: 600; }
+
+    /* Story Section */
+    .story-image {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+      position: relative;
+    }
+    .story-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .story-image-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: white;
+      border-radius: 16px;
+      padding: 14px 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .story-image-badge .badge-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 18px;
+    }
+    .achievement-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .achievement-icon {
+      width: 40px; height: 40px; min-width: 40px;
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #2563eb; font-size: 16px;
+    }
+
+    /* Mission & Vision */
+    .mv-card {
+      background: var(--bg-white, #fff);
+      border-radius: 20px;
+      padding: 40px 36px;
+      border: 1px solid var(--border-color, #e2e8f0);
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .mv-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+    .mv-icon {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+      margin-bottom: 24px;
+    }
+
+    /* Stats */
+    .stat-card {
+      background: var(--bg-white, #fff);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      border: 1px solid var(--border-color, #e2e8f0);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .stat-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+    .stat-card-icon {
+      width: 60px; height: 60px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin: 0 auto 20px;
+    }
+    .stat-card-number {
+      font-family: var(--font-heading, 'Poppins', sans-serif);
+      font-size: 2.6rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-card-label {
+      font-size: 14px;
+      color: var(--text-muted, #64748b);
+      font-weight: 500;
+    }
+
+    /* Core Values */
+    .value-card {
+      background: var(--bg-white, #fff);
+      border-radius: 16px;
+      padding: 28px 24px;
+      border: 1px solid var(--border-color, #e2e8f0);
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .value-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.07); }
+    .value-icon {
+      width: 50px; height: 50px; min-width: 50px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .value-card h5 { font-family: var(--font-heading, 'Poppins', sans-serif); font-weight: 700; margin-bottom: 6px; font-size: 1rem; }
+    .value-card p { font-size: 14px; color: var(--text-muted, #64748b); margin: 0; line-height: 1.6; }
+
+    /* Team */
+    .team-card {
+      background: var(--bg-white, #fff);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      border: 1px solid var(--border-color, #e2e8f0);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .team-card:hover { transform: translateY(-8px); box-shadow: 0 24px 56px rgba(0,0,0,0.1); }
+    .team-avatar {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      display: block;
+      border: 4px solid #eff6ff;
+      box-shadow: 0 8px 24px rgba(37,99,235,0.15);
+    }
+    .team-name { font-family: var(--font-heading, 'Poppins', sans-serif); font-weight: 700; font-size: 1.1rem; margin-bottom: 4px; }
+    .team-role {
+      font-size: 13px;
+      color: #2563eb;
+      font-weight: 600;
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+    }
+    .team-bio { font-size: 14px; color: var(--text-muted, #64748b); line-height: 1.6; margin-bottom: 18px; }
+    .team-socials { display: flex; justify-content: center; gap: 10px; }
+    .team-social-btn {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: var(--bg-secondary, #f8fafc);
+      border: 1px solid var(--border-color, #e2e8f0);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted, #64748b);
+      font-size: 13px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .team-social-btn:hover { background: #2563eb; color: white; border-color: #2563eb; }
+  </style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand-custom" aria-label="DemoTube Home">
+        <div class="brand-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+        Demo<span style="color:var(--secondary)">Tube</span>
+      </a>
+
+      <ul class="nav-menu" role="list">
+        <li><a href="index.html" class="nav-link-custom">Home</a></li>
+        <li><a href="courses.html" class="nav-link-custom">Courses</a></li>
+        <li><a href="categories.html" class="nav-link-custom">Categories</a></li>
+        <li><a href="teachers.html" class="nav-link-custom">Teachers</a></li>
+        <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+        <li><a href="about.html" class="nav-link-custom active">About</a></li>
+        <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-icon-btn" id="navSearchBtn" aria-label="Open search">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </button>
+        <button class="nav-icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+        <a href="courses.html" class="btn-primary-custom d-none d-md-inline-flex" style="padding:10px 22px;font-size:13px;">
+          Get Started
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+  <div class="container">
+    <a href="index.html" class="nav-link-custom">Home</a>
+    <a href="courses.html" class="nav-link-custom">Courses</a>
+    <a href="categories.html" class="nav-link-custom">Categories</a>
+    <a href="teachers.html" class="nav-link-custom">Teachers</a>
+    <a href="blog.html" class="nav-link-custom">Blog</a>
+    <a href="about.html" class="nav-link-custom active">About</a>
+    <a href="contact.html" class="nav-link-custom">Contact</a>
+    <a href="faq.html" class="nav-link-custom">FAQ</a>
+    <div style="padding:12px 24px;">
+      <a href="courses.html" class="btn-primary-custom" style="width:100%;justify-content:center;">Get Started</a>
+    </div>
+  </div>
+</div>
+
+<!-- Search Overlay -->
+<div id="searchOverlay" style="display:none;opacity:0;position:fixed;inset:0;background:rgba(15,23,42,0.85);backdrop-filter:blur(8px);z-index:2000;align-items:center;justify-content:center;padding:24px;transition:opacity 0.3s ease;">
+  <div style="width:100%;max-width:600px;position:relative;">
+    <button id="searchClose" style="position:absolute;top:-50px;right:0;background:transparent;border:none;color:white;font-size:24px;cursor:pointer;" aria-label="Close search"><i class="fas fa-times"></i></button>
+    <div style="position:relative;">
+      <i class="fas fa-search" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);color:#64748b;font-size:18px;"></i>
+      <input id="globalSearch" type="text" placeholder="Search courses, topics, teachers…" aria-label="Global search" style="width:100%;padding:18px 20px 18px 52px;background:white;border:none;border-radius:16px;font-size:18px;font-family:var(--font-body);outline:none;color:#1e293b;" />
+    </div>
+    <p style="color:rgba(255,255,255,0.5);font-size:14px;margin-top:12px;text-align:center;">Press ESC to close</p>
+  </div>
+</div>
+
+<!-- ===================== PAGE HERO ===================== -->
+<section class="page-hero" aria-label="About page hero">
+  <div class="container position-relative">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-7" data-aos="fade-up">
+        <h1 class="page-hero-title">About DemoTube</h1>
+        <p style="color:rgba(255,255,255,0.8);font-size:1.1rem;margin-bottom:24px;">Empowering learners worldwide with expert-led education since 2018</p>
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb-custom justify-content-center">
+            <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
+            <li class="sep" aria-hidden="true"><i class="fas fa-chevron-right" style="font-size:10px;"></i></li>
+            <li class="current">About</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COMPANY STORY ===================== -->
+<section class="section-padding bg-white-section" aria-labelledby="story-heading">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title" id="story-heading">Empowering Learners <span class="gradient-text">Since 2018</span></h2>
+
+        <p style="color:var(--text-secondary, #475569);line-height:1.8;margin-bottom:16px;">
+          DemoTube was founded in 2018 by a small team of passionate educators and technologists who believed that quality education should not be confined to expensive institutions or geographic boundaries. Starting with just 12 courses and a vision, we set out to create a platform where anyone, regardless of their background or location, could access world-class instruction.
+        </p>
+        <p style="color:var(--text-secondary, #475569);line-height:1.8;margin-bottom:16px;">
+          Over the years, we've grown from a small startup to a thriving global platform trusted by over 50,000 learners across 120+ countries. Our content library now spans 200+ courses taught by 40+ industry-leading experts, covering everything from programming and data science to design, business, and spoken English.
+        </p>
+        <p style="color:var(--text-secondary, #475569);line-height:1.8;margin-bottom:32px;">
+          Today, DemoTube stands as a testament to the transformative power of accessible education. Every feature we build, every course we add, and every partnership we form is guided by one simple belief: when people have the right knowledge and tools, they can achieve extraordinary things.
+        </p>
+
+        <div class="achievement-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="achievement-icon"><i class="fas fa-globe" aria-hidden="true"></i></div>
+          <div>
+            <strong style="color:var(--text-primary,#1e293b);display:block;margin-bottom:4px;">Global Reach</strong>
+            <span style="font-size:14px;color:var(--text-muted,#64748b);">Learners from 120+ countries trust DemoTube to advance their skills and career goals every day.</span>
+          </div>
+        </div>
+        <div class="achievement-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="achievement-icon" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);"><i class="fas fa-award" style="color:#10b981;" aria-hidden="true"></i></div>
+          <div>
+            <strong style="color:var(--text-primary,#1e293b);display:block;margin-bottom:4px;">Award-Winning Platform</strong>
+            <span style="font-size:14px;color:var(--text-muted,#64748b);">Recognized as Best EdTech Platform of 2024 by the Global Education Innovation Awards.</span>
+          </div>
+        </div>
+        <div class="achievement-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="achievement-icon" style="background:linear-gradient(135deg,#fef3c7,#fde68a);"><i class="fas fa-star" style="color:#d97706;" aria-hidden="true"></i></div>
+          <div>
+            <strong style="color:var(--text-primary,#1e293b);display:block;margin-bottom:4px;">95% Satisfaction Rate</strong>
+            <span style="font-size:14px;color:var(--text-muted,#64748b);">Our students consistently rate their learning experience a near-perfect score across all categories.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="story-image" style="height:480px;">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=75"
+               alt="Students collaborating and learning together at DemoTube"
+               loading="lazy" width="600" height="480" />
+          <div class="story-image-badge">
+            <div class="badge-icon"><i class="fas fa-users" aria-hidden="true"></i></div>
+            <div>
+              <span style="display:block;font-weight:700;font-size:1rem;color:#1e293b;">50,000+</span>
+              <span style="font-size:12px;color:#64748b;">Active Learners</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MISSION & VISION ===================== -->
+<section class="section-padding bg-section" aria-labelledby="mv-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">What Drives Us</span>
+      <h2 class="section-title" id="mv-heading">Our Mission & <span class="gradient-text">Vision</span></h2>
+      <p class="section-subtitle">The core principles that guide everything we do at DemoTube</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="mv-card">
+          <div class="mv-icon" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);">
+            <i class="fas fa-bullseye" style="color:#2563eb;" aria-hidden="true"></i>
+          </div>
+          <h3 style="font-family:var(--font-heading,'Poppins',sans-serif);font-weight:700;font-size:1.4rem;margin-bottom:16px;">Our Mission</h3>
+          <p style="color:var(--text-secondary,#475569);line-height:1.8;margin-bottom:16px;">
+            Our mission is to make high-quality education radically accessible to everyone, everywhere. We believe that your zip code, your financial situation, or your schedule should never be barriers to learning the skills that can change your life.
+          </p>
+          <p style="color:var(--text-secondary,#475569);line-height:1.8;">
+            We accomplish this by partnering with the best educators in every field, building an intuitive and engaging platform, offering courses at no cost, and continuously improving our content based on real student feedback. Every decision we make is filtered through this mission.
+          </p>
+          <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--border-color,#e2e8f0);">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+              <i class="fas fa-check-circle" style="color:#2563eb;" aria-hidden="true"></i>
+              <span style="font-size:14px;color:var(--text-primary,#1e293b);font-weight:500;">Free & premium learning paths for all levels</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+              <i class="fas fa-check-circle" style="color:#2563eb;" aria-hidden="true"></i>
+              <span style="font-size:14px;color:var(--text-primary,#1e293b);font-weight:500;">Mobile-first platform accessible on any device</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <i class="fas fa-check-circle" style="color:#2563eb;" aria-hidden="true"></i>
+              <span style="font-size:14px;color:var(--text-primary,#1e293b);font-weight:500;">Multilingual content expanding every quarter</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="mv-card">
+          <div class="mv-icon" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);">
+            <i class="fas fa-eye" style="color:#10b981;" aria-hidden="true"></i>
+          </div>
+          <h3 style="font-family:var(--font-heading,'Poppins',sans-serif);font-weight:700;font-size:1.4rem;margin-bottom:16px;">Our Vision</h3>
+          <p style="color:var(--text-secondary,#475569);line-height:1.8;margin-bottom:16px;">
+            We envision a world where the quality of your education is not determined by the prestige of an institution you can afford, but by your curiosity and dedication. DemoTube is building the platform that makes that world a reality – one learner, one course, one career breakthrough at a time.
+          </p>
+          <p style="color:var(--text-secondary,#475569);line-height:1.8;">
+            Our long-term vision is to become the #1 global online learning destination by 2030 – a platform that serves 1 million active learners, employs the world's best instructors, and consistently delivers life-changing educational outcomes across every continent.
+          </p>
+          <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--border-color,#e2e8f0);">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+              <i class="fas fa-check-circle" style="color:#10b981;" aria-hidden="true"></i>
+              <span style="font-size:14px;color:var(--text-primary,#1e293b);font-weight:500;">1 million learners by 2030</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+              <i class="fas fa-check-circle" style="color:#10b981;" aria-hidden="true"></i>
+              <span style="font-size:14px;color:var(--text-primary,#1e293b);font-weight:500;">AI-powered personalized learning paths</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <i class="fas fa-check-circle" style="color:#10b981;" aria-hidden="true"></i>
+              <span style="font-size:14px;color:var(--text-primary,#1e293b);font-weight:500;">Partnerships with 500+ industry leaders</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PLATFORM STATISTICS ===================== -->
+<section class="section-padding bg-white-section" aria-labelledby="stats-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">By The Numbers</span>
+      <h2 class="section-title" id="stats-heading">DemoTube <span class="gradient-text">By The Numbers</span></h2>
+      <p class="section-subtitle">Real numbers reflecting our real impact on learners worldwide</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
+        <div class="stat-card">
+          <div class="stat-card-icon" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);">
+            <i class="fas fa-users" style="color:#2563eb;" aria-hidden="true"></i>
+          </div>
+          <div class="stat-card-number" data-count="50000" data-suffix="+">50,000+</div>
+          <div class="stat-card-label">Active Students</div>
+          <p style="font-size:13px;color:var(--text-muted,#64748b);margin-top:8px;margin-bottom:0;">From 120+ countries worldwide</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+        <div class="stat-card">
+          <div class="stat-card-icon" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);">
+            <i class="fas fa-graduation-cap" style="color:#10b981;" aria-hidden="true"></i>
+          </div>
+          <div class="stat-card-number" data-count="200" data-suffix="+">200+</div>
+          <div class="stat-card-label">Expert Courses</div>
+          <p style="font-size:13px;color:var(--text-muted,#64748b);margin-top:8px;margin-bottom:0;">Across 12+ subject categories</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
+        <div class="stat-card">
+          <div class="stat-card-icon" style="background:linear-gradient(135deg,#fef3c7,#fde68a);">
+            <i class="fas fa-chalkboard-teacher" style="color:#d97706;" aria-hidden="true"></i>
+          </div>
+          <div class="stat-card-number" data-count="40" data-suffix="+">40+</div>
+          <div class="stat-card-label">Expert Teachers</div>
+          <p style="font-size:13px;color:var(--text-muted,#64748b);margin-top:8px;margin-bottom:0;">Industry professionals & academics</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="350">
+        <div class="stat-card">
+          <div class="stat-card-icon" style="background:linear-gradient(135deg,#fdf2f8,#fce7f3);">
+            <i class="fas fa-heart" style="color:#db2777;" aria-hidden="true"></i>
+          </div>
+          <div class="stat-card-number" data-count="95" data-suffix="%">95%</div>
+          <div class="stat-card-label">Satisfaction Rate</div>
+          <p style="font-size:13px;color:var(--text-muted,#64748b);margin-top:8px;margin-bottom:0;">Based on 12,000+ reviews</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CORE VALUES ===================== -->
+<section class="section-padding bg-section" aria-labelledby="values-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">What We Stand For</span>
+      <h2 class="section-title" id="values-heading">Our Core <span class="gradient-text">Values</span></h2>
+      <p class="section-subtitle">The principles that shape our culture, products, and every interaction</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Quality Education -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="value-card">
+          <div class="value-icon" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);">
+            <i class="fas fa-medal" style="color:#2563eb;" aria-hidden="true"></i>
+          </div>
+          <div>
+            <h5>Quality Education</h5>
+            <p>We rigorously vet every instructor and course to ensure you receive nothing but the highest standard of educational content, backed by real-world expertise.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Student Success -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="value-card">
+          <div class="value-icon" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);">
+            <i class="fas fa-trophy" style="color:#10b981;" aria-hidden="true"></i>
+          </div>
+          <div>
+            <h5>Student Success</h5>
+            <p>Your success is our success. We measure ourselves by the career transformations, skill gains, and life improvements our learners experience through our platform.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Innovation -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+        <div class="value-card">
+          <div class="value-icon" style="background:linear-gradient(135deg,#fef3c7,#fde68a);">
+            <i class="fas fa-lightbulb" style="color:#d97706;" aria-hidden="true"></i>
+          </div>
+          <div>
+            <h5>Innovation</h5>
+            <p>We embrace technology and creative thinking to constantly improve how education is delivered, from AI-powered recommendations to interactive coding environments.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accessibility -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="value-card">
+          <div class="value-icon" style="background:linear-gradient(135deg,#fdf2f8,#fce7f3);">
+            <i class="fas fa-universal-access" style="color:#db2777;" aria-hidden="true"></i>
+          </div>
+          <div>
+            <h5>Accessibility</h5>
+            <p>Education should be available to all. We actively reduce barriers through free content, scholarships, multilingual support, and mobile-first design for low-bandwidth regions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Community -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
+        <div class="value-card">
+          <div class="value-icon" style="background:linear-gradient(135deg,#fff7ed,#ffedd5);">
+            <i class="fas fa-people-group" style="color:#ea580c;" aria-hidden="true"></i>
+          </div>
+          <div>
+            <h5>Community</h5>
+            <p>Learning is better together. We foster a supportive global community where students help each other, share knowledge, and celebrate each other's growth and achievements.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Excellence -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="value-card">
+          <div class="value-icon" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);">
+            <i class="fas fa-star" style="color:#16a34a;" aria-hidden="true"></i>
+          </div>
+          <div>
+            <h5>Excellence</h5>
+            <p>We set the highest standards for ourselves and never stop improving. From platform performance to content depth, excellence is the baseline we work from, not the goal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TEAM SECTION ===================== -->
+<section class="section-padding bg-white-section" aria-labelledby="team-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">The People Behind DemoTube</span>
+      <h2 class="section-title" id="team-heading">Meet Our <span class="gradient-text">Leadership Team</span></h2>
+      <p class="section-subtitle">Passionate educators, technologists, and creators building the future of online learning</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!-- CEO -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=75"
+               alt="David Park, CEO of DemoTube"
+               class="team-avatar"
+               loading="lazy" width="120" height="120" />
+          <div class="team-name">David Park</div>
+          <div class="team-role">Chief Executive Officer</div>
+          <p class="team-bio">Former Google engineer turned edu-entrepreneur. David co-founded DemoTube with a vision of democratizing world-class education. He holds an MBA from Stanford and 15+ years of tech leadership experience.</p>
+          <div class="team-socials">
+            <a href="#" class="team-social-btn" aria-label="David Park on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="team-social-btn" aria-label="David Park on Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="team-social-btn" aria-label="David Park's website"><i class="fas fa-globe"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTO -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=75"
+               alt="Lisa Wang, CTO of DemoTube"
+               class="team-avatar"
+               loading="lazy" width="120" height="120" />
+          <div class="team-name">Lisa Wang</div>
+          <div class="team-role">Chief Technology Officer</div>
+          <p class="team-bio">A full-stack wizard with a deep passion for scalable systems. Lisa architected DemoTube's platform from the ground up. She's a published researcher in distributed systems with 12+ years at Silicon Valley companies.</p>
+          <div class="team-socials">
+            <a href="#" class="team-social-btn" aria-label="Lisa Wang on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="team-social-btn" aria-label="Lisa Wang on GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" class="team-social-btn" aria-label="Lisa Wang on Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Head of Content -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=75"
+               alt="Michael Brown, Head of Content at DemoTube"
+               class="team-avatar"
+               loading="lazy" width="120" height="120" />
+          <div class="team-name">Michael Brown</div>
+          <div class="team-role">Head of Content</div>
+          <p class="team-bio">A former university professor and curriculum designer, Michael ensures every DemoTube course meets exceptional pedagogical standards. He has designed learning programmes adopted by universities in 20+ countries.</p>
+          <div class="team-socials">
+            <a href="#" class="team-social-btn" aria-label="Michael Brown on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="team-social-btn" aria-label="Michael Brown on Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="team-social-btn" aria-label="Michael Brown's profile"><i class="fas fa-user"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Community Manager -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="350">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=75"
+               alt="Aisha Johnson, Community Manager at DemoTube"
+               class="team-avatar"
+               loading="lazy" width="120" height="120" />
+          <div class="team-name">Aisha Johnson</div>
+          <div class="team-role">Community Manager</div>
+          <p class="team-bio">Aisha is the heart of the DemoTube community. With a background in social work and digital community building, she manages our global learner network and ensures every student feels seen, supported, and celebrated.</p>
+          <div class="team-socials">
+            <a href="#" class="team-social-btn" aria-label="Aisha Johnson on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="team-social-btn" aria-label="Aisha Johnson on Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="team-social-btn" aria-label="Aisha Johnson on Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5" data-aos="fade-up">
+      <p style="color:var(--text-muted,#64748b);margin-bottom:20px;">Want to join our team of passionate educators and innovators?</p>
+      <a href="contact.html" class="btn-primary-custom">
+        <i class="fas fa-briefcase" aria-hidden="true"></i> View Open Positions
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NEWSLETTER ===================== -->
+<section class="section-padding bg-section" aria-labelledby="newsletter-heading">
+  <div class="container">
+    <div class="newsletter-section" data-aos="fade-up">
+      <div class="newsletter-icon" aria-hidden="true"><i class="fas fa-envelope-open-text"></i></div>
+      <h2 class="section-title" id="newsletter-heading">Stay Updated with <span class="gradient-text">New Courses</span></h2>
+      <p class="section-subtitle mb-4">Subscribe to our newsletter and get notified about new courses, promotions, and educational tips.</p>
+      <form id="newsletterForm" action="#" novalidate aria-label="Newsletter subscription">
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email address…" aria-label="Email address" required />
+          <button type="submit" class="btn-primary-custom" style="border-radius:50px;white-space:nowrap;">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i> Subscribe
+          </button>
+        </div>
+      </form>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:12px;">
+        <i class="fas fa-lock" aria-hidden="true"></i> No spam, ever. Unsubscribe at any time.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-md-6 col-lg-4">
+        <div class="footer-brand" aria-label="DemoTube">
+          <div class="brand-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+          Demo<span style="color:var(--secondary);">Tube</span>
+        </div>
+        <p class="footer-desc">Empowering learners worldwide with expert-led courses, practical projects, and lifetime access to world-class education.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Quick Links</h3>
+        <nav aria-label="Footer navigation">
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Home</a></li>
+            <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Courses</a></li>
+            <li><a href="teachers.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Teachers</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> About</a></li>
+            <li><a href="blog.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Blog</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Contact</a></li>
+            <li><a href="faq.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Categories</h3>
+        <ul class="footer-links">
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Programming</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Web Dev</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> AI &amp; ML</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Data Science</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Design</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Business</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> English</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="footer-contact-info">123 Learning Street, Education City, London EC1A 1BB, UK</div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-phone"></i></div>
+          <div class="footer-contact-info"><a href="tel:+441234567890" style="color:rgba(255,255,255,0.6);">+44 123 456 7890</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
+          <div class="footer-contact-info"><a href="mailto:hello@demotube.com" style="color:rgba(255,255,255,0.6);">hello@demotube.com</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
+          <div class="footer-contact-info">Mon – Fri: 9:00 AM – 6:00 PM</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 DemoTube. All rights reserved. Made with <span style="color:#ef4444;">♥</span> for learners worldwide.</p>
+      <div style="display:flex;gap:16px;">
+        <a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Privacy Policy</a>
+        <a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Terms of Service</a>
+        <a href="sitemap.xml" style="font-size:13px;color:rgba(255,255,255,0.4);">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button class="scroll-top-btn" aria-label="Scroll to top">
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<!-- Main JS -->
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact DemoTube – Get in touch with our team for course support, partnerships, technical issues, or general inquiries." />
+  <meta name="keywords" content="contact DemoTube, get in touch, support, email, phone, address" />
+  <meta name="author" content="DemoTube" />
+  <meta property="og:title" content="Contact Us – DemoTube" />
+  <meta property="og:description" content="Reach out to the DemoTube team. We're here to help with any questions or inquiries." />
+  <meta property="og:type" content="website" />
+  <title>Contact Us – DemoTube Online Learning Platform</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #0ea5e9 100%);
+      padding: 100px 0 70px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .page-hero-title {
+      font-family: var(--font-heading, 'Poppins', sans-serif);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .breadcrumb-custom {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+      padding: 0; margin: 0;
+      font-size: 14px;
+    }
+    .breadcrumb-custom a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb-custom a:hover { color: white; }
+    .breadcrumb-custom .sep { color: rgba(255,255,255,0.4); }
+    .breadcrumb-custom .current { color: white; font-weight: 600; }
+
+    /* Contact Info Cards */
+    .contact-info-card {
+      background: var(--bg-white, #fff);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      border: 1px solid var(--border-color, #e2e8f0);
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .contact-info-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+    .contact-info-icon {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      color: white;
+      margin: 0 auto 20px;
+      box-shadow: 0 8px 24px rgba(37,99,235,0.25);
+    }
+    .contact-info-card h4 {
+      font-family: var(--font-heading, 'Poppins', sans-serif);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--text-primary, #1e293b);
+    }
+    .contact-info-card p {
+      font-size: 14px;
+      color: var(--text-muted, #64748b);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .contact-info-card a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-info-card a:hover { text-decoration: underline; }
+
+    /* Contact Form */
+    .contact-form-wrapper {
+      background: var(--bg-white, #fff);
+      border-radius: 24px;
+      padding: 44px 40px;
+      border: 1px solid var(--border-color, #e2e8f0);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    }
+    .form-group-custom {
+      margin-bottom: 20px;
+    }
+    .form-group-custom label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary, #1e293b);
+      margin-bottom: 8px;
+    }
+    .form-group-custom label .required-star {
+      color: #ef4444;
+      margin-left: 2px;
+    }
+    .form-control-custom {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1.5px solid var(--border-color, #e2e8f0);
+      border-radius: 12px;
+      font-size: 15px;
+      font-family: var(--font-body, 'Inter', sans-serif);
+      color: var(--text-primary, #1e293b);
+      background: var(--bg-secondary, #f8fafc);
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .form-control-custom:focus {
+      border-color: #2563eb;
+      background: white;
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.08);
+    }
+    .form-control-custom::placeholder { color: #94a3b8; }
+    textarea.form-control-custom { resize: vertical; min-height: 140px; }
+    select.form-control-custom { cursor: pointer; }
+
+    /* Map */
+    .map-wrapper {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      background: var(--bg-white, #fff);
+      border: 1px solid var(--border-color, #e2e8f0);
+    }
+    .map-wrapper iframe {
+      width: 100%;
+      height: 380px;
+      display: block;
+      border: none;
+    }
+    .map-social-links {
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .map-social-title {
+      font-family: var(--font-heading, 'Poppins', sans-serif);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-primary, #1e293b);
+      margin-bottom: 4px;
+    }
+    .social-links-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .social-link-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1px solid var(--border-color, #e2e8f0);
+      color: var(--text-primary, #1e293b);
+      background: var(--bg-secondary, #f8fafc);
+    }
+    .social-link-btn:hover { transform: translateY(-2px); }
+    .social-link-btn.fb:hover { background: #1877f2; color: white; border-color: #1877f2; }
+    .social-link-btn.tw:hover { background: #1da1f2; color: white; border-color: #1da1f2; }
+    .social-link-btn.ig:hover { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color: white; border-color: transparent; }
+    .social-link-btn.li:hover { background: #0077b5; color: white; border-color: #0077b5; }
+    .social-link-btn.yt:hover { background: #ff0000; color: white; border-color: #ff0000; }
+
+    /* FAQ Teaser */
+    .faq-teaser {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #0ea5e9 100%);
+      border-radius: 24px;
+      padding: 56px 48px;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .faq-teaser::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='20' cy='20' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .faq-teaser-icon {
+      width: 80px; height: 80px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 24px;
+      backdrop-filter: blur(4px);
+    }
+    .faq-teaser h2 {
+      font-family: var(--font-heading, 'Poppins', sans-serif);
+      font-weight: 800;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      margin-bottom: 16px;
+    }
+    .faq-teaser p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0 auto 28px;
+    }
+    .btn-white-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border: 2px solid rgba(255,255,255,0.6);
+      border-radius: 50px;
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(4px);
+    }
+    .btn-white-outline:hover {
+      background: white;
+      color: #2563eb;
+      border-color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+      border: 1px solid #6ee7b7;
+      border-radius: 12px;
+      padding: 16px 20px;
+      color: #065f46;
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 16px;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand-custom" aria-label="DemoTube Home">
+        <div class="brand-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+        Demo<span style="color:var(--secondary)">Tube</span>
+      </a>
+
+      <ul class="nav-menu" role="list">
+        <li><a href="index.html" class="nav-link-custom">Home</a></li>
+        <li><a href="courses.html" class="nav-link-custom">Courses</a></li>
+        <li><a href="categories.html" class="nav-link-custom">Categories</a></li>
+        <li><a href="teachers.html" class="nav-link-custom">Teachers</a></li>
+        <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+        <li><a href="about.html" class="nav-link-custom">About</a></li>
+        <li><a href="contact.html" class="nav-link-custom active">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-icon-btn" id="navSearchBtn" aria-label="Open search">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </button>
+        <button class="nav-icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+        <a href="courses.html" class="btn-primary-custom d-none d-md-inline-flex" style="padding:10px 22px;font-size:13px;">
+          Get Started
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+  <div class="container">
+    <a href="index.html" class="nav-link-custom">Home</a>
+    <a href="courses.html" class="nav-link-custom">Courses</a>
+    <a href="categories.html" class="nav-link-custom">Categories</a>
+    <a href="teachers.html" class="nav-link-custom">Teachers</a>
+    <a href="blog.html" class="nav-link-custom">Blog</a>
+    <a href="about.html" class="nav-link-custom">About</a>
+    <a href="contact.html" class="nav-link-custom active">Contact</a>
+    <a href="faq.html" class="nav-link-custom">FAQ</a>
+    <div style="padding:12px 24px;">
+      <a href="courses.html" class="btn-primary-custom" style="width:100%;justify-content:center;">Get Started</a>
+    </div>
+  </div>
+</div>
+
+<!-- Search Overlay -->
+<div id="searchOverlay" style="display:none;opacity:0;position:fixed;inset:0;background:rgba(15,23,42,0.85);backdrop-filter:blur(8px);z-index:2000;align-items:center;justify-content:center;padding:24px;transition:opacity 0.3s ease;">
+  <div style="width:100%;max-width:600px;position:relative;">
+    <button id="searchClose" style="position:absolute;top:-50px;right:0;background:transparent;border:none;color:white;font-size:24px;cursor:pointer;" aria-label="Close search"><i class="fas fa-times"></i></button>
+    <div style="position:relative;">
+      <i class="fas fa-search" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);color:#64748b;font-size:18px;"></i>
+      <input id="globalSearch" type="text" placeholder="Search courses, topics, teachers…" aria-label="Global search" style="width:100%;padding:18px 20px 18px 52px;background:white;border:none;border-radius:16px;font-size:18px;font-family:var(--font-body);outline:none;color:#1e293b;" />
+    </div>
+    <p style="color:rgba(255,255,255,0.5);font-size:14px;margin-top:12px;text-align:center;">Press ESC to close</p>
+  </div>
+</div>
+
+<!-- ===================== PAGE HERO ===================== -->
+<section class="page-hero" aria-label="Contact page hero">
+  <div class="container position-relative">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-7" data-aos="fade-up">
+        <h1 class="page-hero-title">Contact Us</h1>
+        <p style="color:rgba(255,255,255,0.8);font-size:1.1rem;margin-bottom:24px;">We'd love to hear from you. Get in touch and we'll respond within 24 hours</p>
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb-custom justify-content-center">
+            <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
+            <li class="sep" aria-hidden="true"><i class="fas fa-chevron-right" style="font-size:10px;"></i></li>
+            <li class="current">Contact</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT INFO CARDS ===================== -->
+<section class="section-padding bg-white-section" aria-labelledby="contact-info-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title" id="contact-info-heading">How to <span class="gradient-text">Reach Us</span></h2>
+      <p class="section-subtitle">Multiple ways to connect with the DemoTube team – we're always happy to help</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!-- Location -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="contact-info-card">
+          <div class="contact-info-icon">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+          </div>
+          <h4>Our Location</h4>
+          <p>
+            123 Learning Street<br>
+            Education City<br>
+            London EC1A 1BB, UK
+          </p>
+          <a href="https://maps.google.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;">
+            <i class="fas fa-directions" aria-hidden="true"></i> Get Directions
+          </a>
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+        <div class="contact-info-card">
+          <div class="contact-info-icon" style="background:linear-gradient(135deg,#10b981,#059669);">
+            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+          </div>
+          <h4>Phone Number</h4>
+          <p>
+            <a href="tel:+441234567890">+44 123 456 7890</a><br>
+            <span style="color:#94a3b8;font-size:13px;">Monday – Friday</span><br>
+            <span style="color:#94a3b8;font-size:13px;">9:00 AM – 6:00 PM (GMT)</span>
+          </p>
+          <a href="tel:+441234567890" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;color:#10b981;font-weight:600;">
+            <i class="fas fa-phone" aria-hidden="true"></i> Call Now
+          </a>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
+        <div class="contact-info-card">
+          <div class="contact-info-icon" style="background:linear-gradient(135deg,#d97706,#ea580c);">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+          </div>
+          <h4>Email Address</h4>
+          <p>
+            <a href="mailto:hello@demotube.com">hello@demotube.com</a><br>
+            <span style="color:#94a3b8;font-size:13px;">General inquiries &amp; support</span><br>
+            <span style="color:#94a3b8;font-size:13px;">Reply within 24 hours</span>
+          </p>
+          <a href="mailto:hello@demotube.com" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;color:#d97706;font-weight:600;">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT FORM + MAP ===================== -->
+<section class="section-padding bg-section" aria-labelledby="form-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Send a Message</span>
+      <h2 class="section-title" id="form-heading">We'd Love to <span class="gradient-text">Hear From You</span></h2>
+      <p class="section-subtitle">Fill in the form below and our team will get back to you as soon as possible</p>
+    </div>
+
+    <div class="row g-4 align-items-start">
+
+      <!-- Contact Form -->
+      <div class="col-lg-7" data-aos="fade-right">
+        <div class="contact-form-wrapper">
+          <h3 style="font-family:var(--font-heading,'Poppins',sans-serif);font-weight:700;font-size:1.3rem;margin-bottom:8px;color:var(--text-primary,#1e293b);">Send Us a Message</h3>
+          <p style="font-size:14px;color:var(--text-muted,#64748b);margin-bottom:28px;">All fields marked with <span style="color:#ef4444;">*</span> are required.</p>
+
+          <form id="contactForm" action="#" novalidate aria-label="Contact form">
+
+            <!-- First Name + Last Name -->
+            <div class="row g-3 mb-0">
+              <div class="col-sm-6">
+                <div class="form-group-custom">
+                  <label for="firstName">First Name <span class="required-star">*</span></label>
+                  <input type="text" id="firstName" name="firstName" class="form-control-custom"
+                         placeholder="e.g. John" required autocomplete="given-name" />
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group-custom">
+                  <label for="lastName">Last Name <span class="required-star">*</span></label>
+                  <input type="text" id="lastName" name="lastName" class="form-control-custom"
+                         placeholder="e.g. Smith" required autocomplete="family-name" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group-custom">
+              <label for="email">Email Address <span class="required-star">*</span></label>
+              <input type="email" id="email" name="email" class="form-control-custom"
+                     placeholder="e.g. john@example.com" required autocomplete="email" />
+            </div>
+
+            <!-- Subject -->
+            <div class="form-group-custom">
+              <label for="subject">Subject <span class="required-star">*</span></label>
+              <select id="subject" name="subject" class="form-control-custom" required>
+                <option value="" disabled selected>Select a subject…</option>
+                <option value="general">General Inquiry</option>
+                <option value="course-support">Course Support</option>
+                <option value="technical">Technical Issue</option>
+                <option value="partnership">Partnership</option>
+                <option value="feedback">Feedback</option>
+              </select>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group-custom">
+              <label for="message">Your Message <span class="required-star">*</span></label>
+              <textarea id="message" name="message" class="form-control-custom"
+                        rows="5" placeholder="Tell us how we can help you…" required></textarea>
+            </div>
+
+            <!-- Privacy Checkbox -->
+            <div class="form-group-custom" style="display:flex;align-items:flex-start;gap:10px;">
+              <input type="checkbox" id="privacy" name="privacy" required
+                     style="width:18px;height:18px;margin-top:2px;accent-color:#2563eb;cursor:pointer;flex-shrink:0;" />
+              <label for="privacy" style="font-size:13px;color:var(--text-muted,#64748b);cursor:pointer;margin:0;">
+                I agree to the <a href="#" style="color:#2563eb;">Privacy Policy</a> and consent to DemoTube processing my data to respond to this inquiry.
+              </label>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;padding:16px 32px;font-size:16px;border-radius:14px;">
+              <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
+            </button>
+
+            <!-- Success Message -->
+            <div class="form-success" id="formSuccess" role="alert">
+              <i class="fas fa-check-circle" style="font-size:20px;color:#059669;" aria-hidden="true"></i>
+              <span>Your message has been sent successfully! We'll get back to you within 24 hours.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Map + Social -->
+      <div class="col-lg-5" data-aos="fade-left">
+        <div class="map-wrapper">
+          <iframe
+            title="DemoTube office location on Google Maps"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9080825834!2d-0.09787368422954!3d51.51280527963696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDMwJzQ2LjEiTiAwwrAwNSc0OC43Ilc!5e0!3m2!1sen!2suk!4v1234567890"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            aria-label="Google Maps showing DemoTube's London office location">
+          </iframe>
+
+          <div class="map-social-links">
+            <div class="map-social-title">
+              <i class="fas fa-share-alt" style="color:#2563eb;margin-right:6px;" aria-hidden="true"></i>
+              Connect with us on social media
+            </div>
+            <p style="font-size:13px;color:var(--text-muted,#64748b);margin:0 0 8px;">Follow DemoTube for daily tips, new course announcements, and community highlights.</p>
+            <div class="social-links-row">
+              <a href="#" class="social-link-btn fb" aria-label="DemoTube on Facebook">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook
+              </a>
+              <a href="#" class="social-link-btn tw" aria-label="DemoTube on Twitter">
+                <i class="fab fa-twitter" aria-hidden="true"></i> Twitter
+              </a>
+              <a href="#" class="social-link-btn ig" aria-label="DemoTube on Instagram">
+                <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
+              </a>
+              <a href="#" class="social-link-btn li" aria-label="DemoTube on LinkedIn">
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
+              </a>
+              <a href="#" class="social-link-btn yt" aria-label="DemoTube on YouTube">
+                <i class="fab fa-youtube" aria-hidden="true"></i> YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ TEASER ===================== -->
+<section class="section-padding bg-white-section" aria-labelledby="faq-teaser-heading">
+  <div class="container">
+    <div data-aos="fade-up">
+      <div class="faq-teaser">
+        <div class="faq-teaser-icon">
+          <i class="fas fa-question-circle" aria-hidden="true"></i>
+        </div>
+        <h2 id="faq-teaser-heading">Have More Questions?</h2>
+        <p>
+          Before reaching out, you might find an instant answer in our comprehensive FAQ section. We've covered the most common questions about courses, accounts, payments, technical issues, and much more.
+        </p>
+        <a href="faq.html" class="btn-white-outline">
+          <i class="fas fa-book-open" aria-hidden="true"></i> Browse Our FAQ
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NEWSLETTER ===================== -->
+<section class="section-padding bg-section" aria-labelledby="newsletter-heading">
+  <div class="container">
+    <div class="newsletter-section" data-aos="fade-up">
+      <div class="newsletter-icon" aria-hidden="true"><i class="fas fa-envelope-open-text"></i></div>
+      <h2 class="section-title" id="newsletter-heading">Stay Updated with <span class="gradient-text">New Courses</span></h2>
+      <p class="section-subtitle mb-4">Subscribe to our newsletter and get notified about new courses, promotions, and educational tips.</p>
+      <form id="newsletterForm" action="#" novalidate aria-label="Newsletter subscription">
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email address…" aria-label="Email address" required />
+          <button type="submit" class="btn-primary-custom" style="border-radius:50px;white-space:nowrap;">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i> Subscribe
+          </button>
+        </div>
+      </form>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:12px;">
+        <i class="fas fa-lock" aria-hidden="true"></i> No spam, ever. Unsubscribe at any time.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-md-6 col-lg-4">
+        <div class="footer-brand" aria-label="DemoTube">
+          <div class="brand-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+          Demo<span style="color:var(--secondary);">Tube</span>
+        </div>
+        <p class="footer-desc">Empowering learners worldwide with expert-led courses, practical projects, and lifetime access to world-class education.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Quick Links</h3>
+        <nav aria-label="Footer navigation">
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Home</a></li>
+            <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Courses</a></li>
+            <li><a href="teachers.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Teachers</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> About</a></li>
+            <li><a href="blog.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Blog</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Contact</a></li>
+            <li><a href="faq.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Categories</h3>
+        <ul class="footer-links">
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Programming</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Web Dev</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> AI &amp; ML</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Data Science</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Design</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Business</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> English</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="footer-contact-info">123 Learning Street, Education City, London EC1A 1BB, UK</div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-phone"></i></div>
+          <div class="footer-contact-info"><a href="tel:+441234567890" style="color:rgba(255,255,255,0.6);">+44 123 456 7890</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
+          <div class="footer-contact-info"><a href="mailto:hello@demotube.com" style="color:rgba(255,255,255,0.6);">hello@demotube.com</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
+          <div class="footer-contact-info">Mon – Fri: 9:00 AM – 6:00 PM</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 DemoTube. All rights reserved. Made with <span style="color:#ef4444;">♥</span> for learners worldwide.</p>
+      <div style="display:flex;gap:16px;">
+        <a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Privacy Policy</a>
+        <a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Terms of Service</a>
+        <a href="sitemap.xml" style="font-size:13px;color:rgba(255,255,255,0.4);">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button class="scroll-top-btn" aria-label="Scroll to top">
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<!-- Main JS -->
+<script src="js/main.js"></script>
+
+<script>
+  // Simple contact form success handler
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const success = document.getElementById('formSuccess');
+    success.style.display = 'flex';
+    this.reset();
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+</script>
+</body>
+</html>

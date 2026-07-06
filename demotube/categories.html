@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse all DemoTube course categories – Programming, Web Development, AI, Data Science, Mathematics, and more." />
+  <title>Categories – DemoTube Online Learning</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand-custom" aria-label="DemoTube Home">
+        <div class="brand-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+        Demo<span style="color:var(--secondary)">Tube</span>
+      </a>
+      <ul class="nav-menu" role="list">
+        <li><a href="index.html" class="nav-link-custom">Home</a></li>
+        <li><a href="courses.html" class="nav-link-custom">Courses</a></li>
+        <li><a href="categories.html" class="nav-link-custom active">Categories</a></li>
+        <li><a href="teachers.html" class="nav-link-custom">Teachers</a></li>
+        <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+        <li><a href="about.html" class="nav-link-custom">About</a></li>
+        <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" id="navSearchBtn" aria-label="Open search"><i class="fas fa-search"></i></button>
+        <button class="nav-icon-btn" data-theme-toggle aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+        <a href="courses.html" class="btn-primary-custom d-none d-md-inline-flex" style="padding:10px 22px;font-size:13px;">Get Started</a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <div class="container">
+    <a href="index.html" class="nav-link-custom">Home</a>
+    <a href="courses.html" class="nav-link-custom">Courses</a>
+    <a href="categories.html" class="nav-link-custom active">Categories</a>
+    <a href="teachers.html" class="nav-link-custom">Teachers</a>
+    <a href="blog.html" class="nav-link-custom">Blog</a>
+    <a href="about.html" class="nav-link-custom">About</a>
+    <a href="contact.html" class="nav-link-custom">Contact</a>
+    <a href="faq.html" class="nav-link-custom">FAQ</a>
+    <div style="padding:12px 24px;"><a href="courses.html" class="btn-primary-custom" style="width:100%;justify-content:center;">Get Started</a></div>
+  </div>
+</div>
+<div id="searchOverlay" style="display:none;opacity:0;position:fixed;inset:0;background:rgba(15,23,42,0.85);backdrop-filter:blur(8px);z-index:2000;align-items:center;justify-content:center;padding:24px;transition:opacity 0.3s ease;">
+  <div style="width:100%;max-width:600px;position:relative;">
+    <button id="searchClose" style="position:absolute;top:-50px;right:0;background:transparent;border:none;color:white;font-size:24px;cursor:pointer;"><i class="fas fa-times"></i></button>
+    <div style="position:relative;"><i class="fas fa-search" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);color:#64748b;font-size:18px;"></i><input id="globalSearch" type="text" placeholder="Search courses, topics, teachers…" aria-label="Global search" style="width:100%;padding:18px 20px 18px 52px;background:white;border:none;border-radius:16px;font-size:18px;outline:none;color:#1e293b;" /></div>
+    <p style="color:rgba(255,255,255,0.5);font-size:14px;margin-top:12px;text-align:center;">Press ESC to close</p>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero" aria-label="Page header">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <nav aria-label="Breadcrumb">
+          <div class="breadcrumb-custom">
+            <a href="index.html">Home</a>
+            <span class="sep" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+            <span class="current">Categories</span>
+          </div>
+        </nav>
+        <h1 class="page-hero-title mt-3">Browse <span style="color:#93c5fd;">Categories</span></h1>
+        <p class="page-hero-desc">Explore 12+ subject areas with over 290 courses taught by expert instructors.</p>
+      </div>
+      <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+        <div style="display:inline-flex;gap:24px;">
+          <div style="text-align:center;">
+            <div style="font-size:32px;font-weight:800;color:white;">290+</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.7);">Total Courses</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,0.2);"></div>
+          <div style="text-align:center;">
+            <div style="font-size:32px;font-weight:800;color:white;">50K+</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.7);">Students</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES GRID -->
+<section class="section-padding bg-white-section" aria-labelledby="cat-grid-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">All Categories</span>
+      <h2 class="section-title" id="cat-grid-heading">Explore Our <span class="gradient-text">Learning Categories</span></h2>
+      <p class="section-subtitle">Choose a field and start your learning journey today</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Programming -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
+        <div class="category-card h-100" style="text-align:left;padding:28px;">
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <div class="category-icon flex-shrink-0" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);min-width:60px;">
+              <i class="fas fa-code" style="color:#2563eb;"></i>
+            </div>
+            <div>
+              <h5 style="margin-bottom:4px;">Programming</h5>
+              <span class="course-count">42 Courses</span>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">Master Python, Java, C++, and more. Build real applications and become a professional developer.</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <span style="font-size:13px;color:var(--text-muted);"><i class="fas fa-users"></i> 15K students</span>
+            <span style="font-size:11px;font-weight:700;color:#ef4444;background:#fef2f2;padding:3px 10px;border-radius:50px;">🔥 Trending</span>
+          </div>
+          <a href="courses.html" class="btn-primary-custom mt-3" style="width:100%;justify-content:center;padding:10px 20px;">View Courses</a>
+        </div>
+      </div>
+
+      <!-- Web Development -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="category-card h-100" style="text-align:left;padding:28px;">
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <div class="category-icon flex-shrink-0" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);min-width:60px;">
+              <i class="fas fa-globe" style="color:#10b981;"></i>
+            </div>
+            <div>
+              <h5 style="margin-bottom:4px;">Web Development</h5>
+              <span class="course-count">38 Courses</span>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">Learn HTML, CSS, JavaScript, React, and Node.js. Build stunning websites and web applications.</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <span style="font-size:13px;color:var(--text-muted);"><i class="fas fa-users"></i> 18K students</span>
+            <span style="font-size:11px;font-weight:700;color:#2563eb;background:#eff6ff;padding:3px 10px;border-radius:50px;">Popular</span>
+          </div>
+          <a href="courses.html" class="btn-primary-custom mt-3" style="width:100%;justify-content:center;padding:10px 20px;">View Courses</a>
+        </div>
+      </div>
+
+      <!-- AI -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+        <div class="category-card h-100" style="text-align:left;padding:28px;">
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <div class="category-icon flex-shrink-0" style="background:linear-gradient(135deg,#fef3c7,#fde68a);min-width:60px;">
+              <i class="fas fa-brain" style="color:#d97706;"></i>
+            </div>
+            <div>
+              <h5 style="margin-bottom:4px;">Artificial Intelligence</h5>
+              <span class="course-count">25 Courses</span>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">Dive into Machine Learning, Deep Learning, NLP, and Computer Vision with hands-on projects.</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <span style="font-size:13px;color:var(--text-muted);"><i class="fas fa-users"></i> 12K students</span>
+            <span style="font-size:11px;font-weight:700;color:#ef4444;background:#fef2f2;padding:3px 10px;border-radius:50px;">🔥 Trending</span>
+          </div>
+          <a href="courses.html" class="btn-primary-custom mt-3" style="width:100%;justify-content:center;padding:10px 20px;">View Courses</a>
+        </div>
+      </div>
+
+      <!-- Data Science -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="category-card h-100" style="text-align:left;padding:28px;">
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <div class="category-icon flex-shrink-0" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);min-width:60px;">
+              <i class="fas fa-chart-line" style="color:#16a34a;"></i>
+            </div>
+            <div>
+              <h5 style="margin-bottom:4px;">Data Science</h5>
+              <span class="course-count">30 Courses</span>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">Analyze data, build visualizations, and extract insights using Python, R, SQL, and Tableau.</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <span style="font-size:13px;color:var(--text-muted);"><i class="fas fa-users"></i> 9K students</span>
+            <span style="font-size:11px;font-weight:700;color:#2563eb;background:#eff6ff;padding:3px 10px;border-radius:50px;">Popular</span>
+          </div>
+          <a href="courses.html" class="btn-primary-custom mt-3" style="width:100%;justify-content:center;padding:10px 20px;">View Courses</a>
+        </div>
+      </div>
+
+      <!-- Mathematics -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
+        <div class="category-card h-100" style="text-align:left;padding:28px;">
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <div class="category-icon flex-shrink-0" style="background:linear-gradient(135deg,#fdf2f8,#fce7f3);min-width:60px;">
+              <i class="fas fa-square-root-variable" style="color:#db2777;"></i>
+            </div>
+            <div>
+              <h5 style="margin-bottom:4px;">Mathematics</h5>
+              <span class="course-count">22 Courses</span>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">From algebra and calculus to statistics and discrete math. Build the foundation for tech careers.</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <span style="font-size:13px;color:var(--text-muted);"><i class="fas fa-users"></i> 8K students</span>
+          </div>
+          <a href="courses.html" class="btn-primary-custom mt-3" style="width:100%;justify-content:center;padding:10px 20px;">View Courses</a>
+        </div>
+      </div>
+
+      <!-- Physics -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="category-card h-100" style="text-align:left;padding:28px;">
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <div class="category-icon flex-shrink-0" style="background:linear-gradient(135deg,#fff7ed,#ffedd5);min-width:60px;">
+              <i class="fas fa-atom" style="color:#ea580c;"></i>
+            </div>
+            <div>
+              <h5 style="margin-bottom:4px;">Physics</h5>
+              <span class="course-count">18 Courses</span>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">Understand the laws of the universe – mechanics, thermodynamics, optics, and modern physics.</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <span style="font-size:13px;color:var(--text-muted);"><i class="fas fa-users"></i> 6K students</span>
+          </div>
+          <a href="courses.html" class="btn-primary-custom mt-3" style="width:100%;justify-content:center;padding:10px 20px;">View Courses</a>
+        </div>
+      </div>
+
+      <!-- Chemistry -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="350">
+        <div class="category-card h-100" style="text-align:left;padding:28px;">
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <div class="category-icon flex-shrink-0" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);min-width:60px;">
+              <i class="fas fa-flask" style="color:#059669;"></i>
+            </div>
+            <div>
+              <h5 style="margin-bottom:4px;">Chemistry</h5>
+              <span class="course-count">15 Courses</span>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">Explore organic, inorganic, and physical chemistry. Understand reactions, bonding, and lab techniques.</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <span style="font-size:13px;color:var(--text-muted);"><i class="fas fa-users"></i> 5K students</span>
+          </div>
+          <a href="courses.html" class="btn-primary-custom mt-3" style="width:100%;justify-content:center;padding:10px 20px;">View Courses</a>
+        </div>
+      </div>
+
+      <!-- Biology -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="category-card h-100" style="text-align:left;padding:28px;">
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <div class="category-icon flex-shrink-0" style="background:linear-gradient(135deg,#f0fdf4,#bbf7d0);min-width:60px;">
+              <i class="fas fa-dna" style="color:#15803d;"></i>
+            </div>
+            <div>
+              <h5 style="margin-bottom:4px;">Biology</h5>
+              <span class="course-count">17 Courses</span>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">Study cell biology, genetics, ecology, and human anatomy. Ideal for future scientists and medics.</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <span style="font-size:13px;color:var(--text-muted);"><i class="fas fa-users"></i> 7K students</span>
+          </div>
+          <a href="courses.html" class="btn-primary-custom mt-3" style="width:100%;justify-content:center;padding:10px 20px;">View Courses</a>
+        </div>
+      </div>
+
+      <!-- English -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="450">
+        <div class="category-card h-100" style="text-align:left;padding:28px;">
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <div class="category-icon flex-shrink-0" style="background:linear-gradient(135deg,#eff6ff,#bfdbfe);min-width:60px;">
+              <i class="fas fa-book-open" style="color:#1d4ed8;"></i>
+            </div>
+            <div>
+              <h5 style="margin-bottom:4px;">English</h5>
+              <span class="course-count">20 Courses</span>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">Improve your English grammar, speaking, writing, and comprehension with interactive lessons.</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <span style="font-size:13px;color:var(--text-muted);"><i class="fas fa-users"></i> 11K students</span>
+            <span style="font-size:11px;font-weight:700;color:#2563eb;background:#eff6ff;padding:3px 10px;border-radius:50px;">Popular</span>
+          </div>
+          <a href="courses.html" class="btn-primary-custom mt-3" style="width:100%;justify-content:center;padding:10px 20px;">View Courses</a>
+        </div>
+      </div>
+
+      <!-- Graphic Design -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
+        <div class="category-card h-100" style="text-align:left;padding:28px;">
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <div class="category-icon flex-shrink-0" style="background:linear-gradient(135deg,#fdf2f8,#f5d0fe);min-width:60px;">
+              <i class="fas fa-palette" style="color:#9333ea;"></i>
+            </div>
+            <div>
+              <h5 style="margin-bottom:4px;">Graphic Design</h5>
+              <span class="course-count">16 Courses</span>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">Create stunning visuals with Figma, Photoshop, and Illustrator. Learn typography and color theory.</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <span style="font-size:13px;color:var(--text-muted);"><i class="fas fa-users"></i> 9K students</span>
+          </div>
+          <a href="courses.html" class="btn-primary-custom mt-3" style="width:100%;justify-content:center;padding:10px 20px;">View Courses</a>
+        </div>
+      </div>
+
+      <!-- Business -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="550">
+        <div class="category-card h-100" style="text-align:left;padding:28px;">
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <div class="category-icon flex-shrink-0" style="background:linear-gradient(135deg,#fefce8,#fef08a);min-width:60px;">
+              <i class="fas fa-briefcase" style="color:#ca8a04;"></i>
+            </div>
+            <div>
+              <h5 style="margin-bottom:4px;">Business</h5>
+              <span class="course-count">28 Courses</span>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">Learn entrepreneurship, management, finance, and leadership. Build the skills to run a business.</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <span style="font-size:13px;color:var(--text-muted);"><i class="fas fa-users"></i> 13K students</span>
+            <span style="font-size:11px;font-weight:700;color:#2563eb;background:#eff6ff;padding:3px 10px;border-radius:50px;">Popular</span>
+          </div>
+          <a href="courses.html" class="btn-primary-custom mt-3" style="width:100%;justify-content:center;padding:10px 20px;">View Courses</a>
+        </div>
+      </div>
+
+      <!-- Digital Marketing -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
+        <div class="category-card h-100" style="text-align:left;padding:28px;">
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <div class="category-icon flex-shrink-0" style="background:linear-gradient(135deg,#fef2f2,#fecaca);min-width:60px;">
+              <i class="fas fa-bullhorn" style="color:#dc2626;"></i>
+            </div>
+            <div>
+              <h5 style="margin-bottom:4px;">Digital Marketing</h5>
+              <span class="course-count">19 Courses</span>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">Master SEO, social media, email marketing, and Google Ads to grow businesses online effectively.</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <span style="font-size:13px;color:var(--text-muted);"><i class="fas fa-users"></i> 10K students</span>
+            <span style="font-size:11px;font-weight:700;color:#ef4444;background:#fef2f2;padding:3px 10px;border-radius:50px;">🔥 Trending</span>
+          </div>
+          <a href="courses.html" class="btn-primary-custom mt-3" style="width:100%;justify-content:center;padding:10px 20px;">View Courses</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BANNER -->
+<section style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));padding:60px 0;" aria-label="Platform statistics">
+  <div class="container">
+    <div class="row g-4 text-center">
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="50">
+        <div style="color:white;">
+          <div style="font-family:var(--font-heading);font-size:48px;font-weight:900;line-height:1;" data-count="290" data-suffix="+">290+</div>
+          <div style="font-size:15px;color:rgba(255,255,255,0.7);margin-top:8px;">Total Courses</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="150">
+        <div style="color:white;">
+          <div style="font-family:var(--font-heading);font-size:48px;font-weight:900;line-height:1;" data-count="12" data-suffix="+">12+</div>
+          <div style="font-size:15px;color:rgba(255,255,255,0.7);margin-top:8px;">Categories</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="250">
+        <div style="color:white;">
+          <div style="font-family:var(--font-heading);font-size:48px;font-weight:900;line-height:1;" data-count="50000" data-suffix="+">50K+</div>
+          <div style="font-size:15px;color:rgba(255,255,255,0.7);margin-top:8px;">Active Students</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="350">
+        <div style="color:white;">
+          <div style="font-family:var(--font-heading);font-size:48px;font-weight:900;line-height:1;" data-count="40" data-suffix="+">40+</div>
+          <div style="font-size:15px;color:rgba(255,255,255,0.7);margin-top:8px;">Expert Teachers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section-padding bg-section" aria-labelledby="newsletter-heading">
+  <div class="container">
+    <div class="newsletter-section" data-aos="fade-up">
+      <div class="newsletter-icon"><i class="fas fa-envelope-open-text"></i></div>
+      <h2 class="section-title" id="newsletter-heading">Stay Updated with <span class="gradient-text">New Courses</span></h2>
+      <p class="section-subtitle mb-4">Get notified when new courses are added in your favorite categories.</p>
+      <form id="newsletterForm" action="#" novalidate>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email address…" aria-label="Email" required />
+          <button type="submit" class="btn-primary-custom" style="border-radius:50px;white-space:nowrap;"><i class="fas fa-paper-plane"></i> Subscribe</button>
+        </div>
+      </form>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:12px;"><i class="fas fa-lock"></i> No spam, ever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-md-6 col-lg-4">
+        <div class="footer-brand"><div class="brand-icon"><i class="fas fa-play"></i></div>Demo<span style="color:var(--secondary);">Tube</span></div>
+        <p class="footer-desc">Empowering learners worldwide with expert-led courses and lifetime access to world-class education.</p>
+        <div class="footer-social">
+          <a href="#" class="footer-social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+          <li><a href="teachers.html"><i class="fas fa-chevron-right"></i> Teachers</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+          <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Categories</h3>
+        <ul class="footer-links">
+          <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Programming</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Web Dev</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right"></i> AI & ML</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Data Science</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Design</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Business</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="footer-contact-info">123 Learning Street, London EC1A 1BB, UK</div></div>
+        <div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-phone"></i></div><div class="footer-contact-info">+44 123 456 7890</div></div>
+        <div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-envelope"></i></div><div class="footer-contact-info">hello@demotube.com</div></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 DemoTube. All rights reserved.</p>
+      <div style="display:flex;gap:16px;"><a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Privacy Policy</a><a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Terms of Service</a></div>
+    </div>
+  </div>
+</footer>
+<button class="scroll-top-btn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

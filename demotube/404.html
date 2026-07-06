@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Oops! The page you're looking for doesn't exist. Navigate back to DemoTube and continue your learning journey." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="author" content="DemoTube" />
+  <title>404 – Page Not Found | DemoTube</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    /* ── 404 Page Specific Styles ── */
+    .error-page {
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-secondary);
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Starfield background */
+    .error-page::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 15% 25%, rgba(37,99,235,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 85% 70%, rgba(14,165,233,0.07) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(139,92,246,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Floating dots background */
+    .star-dot {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(37,99,235,0.4);
+      animation: twinkle 3s infinite alternate;
+    }
+    @keyframes twinkle {
+      0%   { opacity: 0.2; transform: scale(1); }
+      100% { opacity: 1;   transform: scale(1.5); }
+    }
+
+    .error-content {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* Astronaut SVG Animation */
+    .astronaut-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    @keyframes astronautFloat {
+      0%   { transform: translateY(0px) rotate(-3deg); }
+      50%  { transform: translateY(-22px) rotate(3deg); }
+      100% { transform: translateY(0px) rotate(-3deg); }
+    }
+    @keyframes orbitRing {
+      0%   { transform: rotateX(75deg) rotate(0deg); }
+      100% { transform: rotateX(75deg) rotate(360deg); }
+    }
+    @keyframes starSpin {
+      0%   { transform: rotate(0deg) scale(1); opacity: 0.6; }
+      50%  { transform: rotate(180deg) scale(1.4); opacity: 1; }
+      100% { transform: rotate(360deg) scale(1); opacity: 0.6; }
+    }
+    @keyframes bookFloat {
+      0%   { transform: translateY(0px) rotate(12deg); }
+      50%  { transform: translateY(-12px) rotate(8deg); }
+      100% { transform: translateY(0px) rotate(12deg); }
+    }
+    .astronaut-svg {
+      animation: astronautFloat 4.5s ease-in-out infinite;
+      filter: drop-shadow(0 20px 40px rgba(37,99,235,0.3));
+    }
+
+    /* 404 Number */
+    .error-404-number {
+      font-family: var(--font-heading);
+      font-size: clamp(5rem, 18vw, 9rem);
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #0ea5e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+      letter-spacing: -4px;
+    }
+
+    .error-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+    .error-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .error-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+    .error-quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      justify-content: center;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-color);
+    }
+    .error-quick-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.25s;
+      padding: 6px 0;
+    }
+    .error-quick-link:hover {
+      color: var(--primary);
+    }
+    .error-quick-link i {
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand-custom" aria-label="DemoTube Home">
+        <div class="brand-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+        Demo<span style="color:var(--secondary)">Tube</span>
+      </a>
+
+      <ul class="nav-menu" role="list">
+        <li><a href="index.html" class="nav-link-custom">Home</a></li>
+        <li><a href="courses.html" class="nav-link-custom">Courses</a></li>
+        <li><a href="categories.html" class="nav-link-custom">Categories</a></li>
+        <li><a href="teachers.html" class="nav-link-custom">Teachers</a></li>
+        <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+        <li><a href="about.html" class="nav-link-custom">About</a></li>
+        <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-icon-btn" id="navSearchBtn" aria-label="Open search">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </button>
+        <button class="nav-icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+        <a href="courses.html" class="btn-primary-custom d-none d-md-inline-flex" style="padding:10px 22px;font-size:13px;">
+          Get Started
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+  <div class="container">
+    <a href="index.html" class="nav-link-custom">Home</a>
+    <a href="courses.html" class="nav-link-custom">Courses</a>
+    <a href="categories.html" class="nav-link-custom">Categories</a>
+    <a href="teachers.html" class="nav-link-custom">Teachers</a>
+    <a href="blog.html" class="nav-link-custom">Blog</a>
+    <a href="about.html" class="nav-link-custom">About</a>
+    <a href="contact.html" class="nav-link-custom">Contact</a>
+    <a href="faq.html" class="nav-link-custom">FAQ</a>
+    <div style="padding:12px 24px;">
+      <a href="courses.html" class="btn-primary-custom" style="width:100%;justify-content:center;">Get Started</a>
+    </div>
+  </div>
+</div>
+
+<!-- Search Overlay -->
+<div id="searchOverlay" style="display:none;opacity:0;position:fixed;inset:0;background:rgba(15,23,42,0.85);backdrop-filter:blur(8px);z-index:2000;align-items:center;justify-content:center;padding:24px;transition:opacity 0.3s ease;">
+  <div style="width:100%;max-width:600px;position:relative;">
+    <button id="searchClose" style="position:absolute;top:-50px;right:0;background:transparent;border:none;color:white;font-size:24px;cursor:pointer;" aria-label="Close search"><i class="fas fa-times"></i></button>
+    <div style="position:relative;">
+      <i class="fas fa-search" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);color:#64748b;font-size:18px;"></i>
+      <input id="globalSearch" type="text" placeholder="Search courses, topics, teachers…" aria-label="Global search" style="width:100%;padding:18px 20px 18px 52px;background:white;border:none;border-radius:16px;font-size:18px;font-family:var(--font-body);outline:none;color:#1e293b;" />
+    </div>
+    <p style="color:rgba(255,255,255,0.5);font-size:14px;margin-top:12px;text-align:center;">Press ESC to close</p>
+  </div>
+</div>
+
+<!-- ===================== 404 MAIN CONTENT ===================== -->
+<main class="error-page" aria-label="404 error page">
+
+  <!-- Decorative background star dots -->
+  <span class="star-dot" style="width:6px;height:6px;top:12%;left:8%;animation-delay:0s;animation-duration:2.1s;"></span>
+  <span class="star-dot" style="width:4px;height:4px;top:20%;left:22%;animation-delay:0.4s;animation-duration:3.2s;"></span>
+  <span class="star-dot" style="width:8px;height:8px;top:8%;left:65%;animation-delay:0.8s;animation-duration:2.7s;"></span>
+  <span class="star-dot" style="width:5px;height:5px;top:30%;left:90%;animation-delay:1.2s;animation-duration:3.5s;"></span>
+  <span class="star-dot" style="width:7px;height:7px;top:75%;left:5%;animation-delay:0.2s;animation-duration:2.9s;"></span>
+  <span class="star-dot" style="width:4px;height:4px;top:85%;left:30%;animation-delay:0.6s;animation-duration:3.8s;"></span>
+  <span class="star-dot" style="width:6px;height:6px;top:60%;left:80%;animation-delay:1.0s;animation-duration:2.4s;"></span>
+  <span class="star-dot" style="width:5px;height:5px;top:90%;left:70%;animation-delay:1.5s;animation-duration:3.1s;"></span>
+  <span class="star-dot" style="width:3px;height:3px;top:45%;left:95%;animation-delay:0.3s;animation-duration:4.0s;background:rgba(139,92,246,0.5);"></span>
+  <span class="star-dot" style="width:9px;height:9px;top:15%;left:42%;animation-delay:0.9s;animation-duration:2.6s;background:rgba(14,165,233,0.35);"></span>
+
+  <div class="error-content">
+
+    <!-- Astronaut SVG Illustration -->
+    <div class="astronaut-wrapper" aria-hidden="true">
+      <svg class="astronaut-svg" width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated astronaut floating in space">
+        <defs>
+          <!-- Space background gradient -->
+          <radialGradient id="spaceBg" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#1e3a8a" stop-opacity="1"/>
+            <stop offset="60%" stop-color="#1d4ed8" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#0c1445" stop-opacity="1"/>
+          </radialGradient>
+          <!-- Helmet visor gradient -->
+          <linearGradient id="visorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#38bdf8"/>
+            <stop offset="100%" stop-color="#0369a1"/>
+          </linearGradient>
+          <!-- Body suit gradient -->
+          <linearGradient id="suitGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#f1f5f9"/>
+            <stop offset="100%" stop-color="#cbd5e1"/>
+          </linearGradient>
+          <!-- Planet gradient -->
+          <radialGradient id="planetGrad" cx="40%" cy="40%" r="60%">
+            <stop offset="0%" stop-color="#a78bfa"/>
+            <stop offset="70%" stop-color="#7c3aed"/>
+            <stop offset="100%" stop-color="#4c1d95"/>
+          </radialGradient>
+          <!-- Book gradient -->
+          <linearGradient id="bookGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f59e0b"/>
+            <stop offset="100%" stop-color="#d97706"/>
+          </linearGradient>
+          <!-- Glow filter -->
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- ── SPACE BACKGROUND CIRCLE ── -->
+        <circle cx="150" cy="150" r="145" fill="url(#spaceBg)"/>
+        <circle cx="150" cy="150" r="145" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+        <!-- Stars in background -->
+        <circle cx="40"  cy="45"  r="1.5" fill="white" opacity="0.9"/>
+        <circle cx="75"  cy="25"  r="1"   fill="white" opacity="0.7"/>
+        <circle cx="120" cy="38"  r="1.5" fill="white" opacity="0.8"/>
+        <circle cx="220" cy="50"  r="2"   fill="white" opacity="0.9"/>
+        <circle cx="255" cy="80"  r="1"   fill="white" opacity="0.6"/>
+        <circle cx="265" cy="35"  r="1.5" fill="#38bdf8" opacity="0.8"/>
+        <circle cx="30"  cy="120" r="1"   fill="white" opacity="0.7"/>
+        <circle cx="280" cy="140" r="1.5" fill="white" opacity="0.8"/>
+        <circle cx="55"  cy="220" r="1"   fill="white" opacity="0.6"/>
+        <circle cx="250" cy="240" r="1.5" fill="white" opacity="0.7"/>
+        <circle cx="35"  cy="260" r="2"   fill="#a78bfa" opacity="0.8"/>
+        <circle cx="270" cy="200" r="1"   fill="white" opacity="0.9"/>
+        <circle cx="200" cy="270" r="1.5" fill="white" opacity="0.7"/>
+        <circle cx="90"  cy="265" r="1"   fill="white" opacity="0.6"/>
+
+        <!-- Sparkle 1 (top-right) -->
+        <g transform="translate(230,68)" style="animation: starSpin 3s linear infinite; transform-origin: 0 0;">
+          <path d="M0,-8 L1.5,-1.5 L8,0 L1.5,1.5 L0,8 L-1.5,1.5 L-8,0 L-1.5,-1.5 Z" fill="#fbbf24" opacity="0.9" filter="url(#glow)"/>
+        </g>
+
+        <!-- Sparkle 2 (bottom-left) -->
+        <g transform="translate(62,210)" style="animation: starSpin 4s linear infinite reverse; transform-origin: 0 0;">
+          <path d="M0,-6 L1.1,-1.1 L6,0 L1.1,1.1 L0,6 L-1.1,1.1 L-6,0 L-1.1,-1.1 Z" fill="#34d399" opacity="0.85" filter="url(#glow)"/>
+        </g>
+
+        <!-- Sparkle 3 (small, mid-right) -->
+        <g transform="translate(262,165)" style="animation: starSpin 2.5s linear infinite; transform-origin: 0 0;">
+          <path d="M0,-5 L0.9,-0.9 L5,0 L0.9,0.9 L0,5 L-0.9,0.9 L-5,0 L-0.9,-0.9 Z" fill="#f472b6" opacity="0.8"/>
+        </g>
+
+        <!-- ── PLANET (bottom-left area) ── -->
+        <g transform="translate(62,215)">
+          <!-- Planet body -->
+          <circle cx="0" cy="0" r="28" fill="url(#planetGrad)"/>
+          <!-- Planet surface detail -->
+          <circle cx="-8" cy="-5" r="5" fill="rgba(255,255,255,0.08)"/>
+          <circle cx="8" cy="6" r="3" fill="rgba(255,255,255,0.06)"/>
+          <!-- Planet rings -->
+          <ellipse cx="0" cy="0" rx="42" ry="10" fill="none" stroke="rgba(167,139,250,0.5)" stroke-width="4"/>
+          <ellipse cx="0" cy="0" rx="52" ry="13" fill="none" stroke="rgba(167,139,250,0.25)" stroke-width="2.5"/>
+          <!-- Shine highlight -->
+          <circle cx="-9" cy="-9" r="7" fill="rgba(255,255,255,0.12)"/>
+        </g>
+
+        <!-- ── FLOATING BOOK (top-left) ── -->
+        <g style="animation: bookFloat 3.8s ease-in-out infinite; transform-origin: 82px 82px;">
+          <g transform="translate(58,60)">
+            <!-- Book body -->
+            <rect x="0" y="0" width="36" height="46" rx="4" fill="url(#bookGrad)"/>
+            <!-- Book spine -->
+            <rect x="0" y="0" width="6" height="46" rx="3" fill="#b45309"/>
+            <!-- Pages -->
+            <rect x="8" y="8"  width="22" height="2" rx="1" fill="rgba(255,255,255,0.6)"/>
+            <rect x="8" y="14" width="18" height="2" rx="1" fill="rgba(255,255,255,0.4)"/>
+            <rect x="8" y="20" width="20" height="2" rx="1" fill="rgba(255,255,255,0.4)"/>
+            <rect x="8" y="26" width="15" height="2" rx="1" fill="rgba(255,255,255,0.4)"/>
+            <rect x="8" y="32" width="19" height="2" rx="1" fill="rgba(255,255,255,0.3)"/>
+            <!-- Star bookmark -->
+            <path d="M24,38 L26,42 L30,42 L27,45 L28,50 L24,47 L20,50 L21,45 L18,42 L22,42 Z" fill="#fcd34d" transform="scale(0.7) translate(10,-22)"/>
+          </g>
+        </g>
+
+        <!-- ── ASTRONAUT FIGURE ── -->
+        <!-- Jetpack -->
+        <rect x="134" y="158" width="32" height="46" rx="8" fill="#475569"/>
+        <rect x="137" y="163" width="12" height="35" rx="5" fill="#334155"/>
+        <rect x="153" y="163" width="10" height="35" rx="5" fill="#334155"/>
+        <!-- Jetpack thruster glow -->
+        <ellipse cx="143" cy="205" rx="5" ry="8" fill="#38bdf8" opacity="0.7"/>
+        <ellipse cx="158" cy="205" rx="4" ry="6" fill="#38bdf8" opacity="0.5"/>
+
+        <!-- Body suit -->
+        <rect x="122" y="155" width="56" height="52" rx="14" fill="url(#suitGrad)"/>
+        <!-- Chest panel -->
+        <rect x="135" y="165" width="30" height="20" rx="5" fill="#e2e8f0"/>
+        <!-- Panel buttons -->
+        <circle cx="142" cy="172" r="3" fill="#ef4444"/>
+        <circle cx="150" cy="172" r="3" fill="#22c55e"/>
+        <circle cx="158" cy="172" r="3" fill="#f59e0b"/>
+        <!-- Panel screen -->
+        <rect x="138" y="178" width="24" height="5" rx="2" fill="#0ea5e9" opacity="0.8"/>
+
+        <!-- Left Arm -->
+        <rect x="102" y="158" width="22" height="36" rx="11" fill="url(#suitGrad)"/>
+        <circle cx="113" cy="197" r="9" fill="#e2e8f0"/>
+        <circle cx="113" cy="197" r="6" fill="#cbd5e1"/>
+
+        <!-- Right Arm (waving) -->
+        <g transform="rotate(-20,178,165)">
+          <rect x="176" y="155" width="22" height="36" rx="11" fill="url(#suitGrad)"/>
+          <circle cx="187" cy="194" r="9" fill="#e2e8f0"/>
+          <circle cx="187" cy="194" r="6" fill="#cbd5e1"/>
+        </g>
+
+        <!-- Legs -->
+        <rect x="130" y="200" width="18" height="38" rx="9" fill="url(#suitGrad)"/>
+        <rect x="152" y="200" width="18" height="38" rx="9" fill="url(#suitGrad)"/>
+        <!-- Boots -->
+        <rect x="127" y="230" width="24" height="14" rx="7" fill="#334155"/>
+        <rect x="149" y="230" width="24" height="14" rx="7" fill="#334155"/>
+
+        <!-- Neck ring -->
+        <rect x="138" y="148" width="24" height="10" rx="5" fill="#94a3b8"/>
+
+        <!-- Helmet (outer) -->
+        <circle cx="150" cy="130" r="38" fill="url(#suitGrad)" filter="url(#glow)"/>
+        <!-- Helmet highlight ring -->
+        <circle cx="150" cy="130" r="38" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+
+        <!-- Visor -->
+        <ellipse cx="150" cy="130" rx="26" ry="24" fill="url(#visorGrad)"/>
+        <!-- Visor shine -->
+        <ellipse cx="138" cy="120" rx="8" ry="6" fill="rgba(255,255,255,0.25)" transform="rotate(-15,138,120)"/>
+        <ellipse cx="155" cy="116" rx="4" ry="3" fill="rgba(255,255,255,0.15)"/>
+
+        <!-- Astronaut face visible through visor -->
+        <circle cx="144" cy="132" r="3.5" fill="rgba(255,255,255,0.6)"/>
+        <circle cx="156" cy="132" r="3.5" fill="rgba(255,255,255,0.6)"/>
+        <path d="M144,142 Q150,148 156,142" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+        <!-- Helmet antenna -->
+        <rect x="148" y="90" width="4" height="16" rx="2" fill="#94a3b8"/>
+        <circle cx="150" cy="88" r="5" fill="#f59e0b" filter="url(#glow)"/>
+
+        <!-- Tether cord -->
+        <path d="M108,180 Q90,165 75,185 Q60,205 62,215" stroke="#94a3b8" stroke-width="2.5" fill="none" stroke-dasharray="4,3" stroke-linecap="round"/>
+
+        <!-- Orbit path (decorative) -->
+        <ellipse cx="150" cy="150" rx="120" ry="30" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="6,4"/>
+      </svg>
+    </div>
+
+    <!-- 404 Number -->
+    <p class="error-404-number" aria-label="Error 404" data-aos="fade-up">404</p>
+
+    <!-- Heading -->
+    <h1 class="error-heading" data-aos="fade-up" data-aos-delay="60">
+      Oops! Page Not Found
+    </h1>
+
+    <!-- Description -->
+    <p class="error-desc" data-aos="fade-up" data-aos-delay="120">
+      Looks like you got lost in space! The page you're looking for doesn't exist or has been moved to a new location. Don't worry — let's get you back on track.
+    </p>
+
+    <!-- Action Buttons -->
+    <div class="error-btn-group" data-aos="fade-up" data-aos-delay="180">
+      <a href="index.html" class="btn-primary-custom">
+        <i class="fas fa-house" aria-hidden="true"></i> Go Back Home
+      </a>
+      <a href="courses.html" class="btn-outline-custom">
+        <i class="fas fa-graduation-cap" aria-hidden="true"></i> Browse Courses
+      </a>
+    </div>
+
+    <!-- Quick Links -->
+    <nav class="error-quick-links" aria-label="Quick navigation links" data-aos="fade-up" data-aos-delay="240">
+      <a href="index.html" class="error-quick-link">
+        <i class="fas fa-home" aria-hidden="true"></i> Home
+      </a>
+      <a href="courses.html" class="error-quick-link">
+        <i class="fas fa-book-open" aria-hidden="true"></i> Courses
+      </a>
+      <a href="about.html" class="error-quick-link">
+        <i class="fas fa-info-circle" aria-hidden="true"></i> About
+      </a>
+      <a href="contact.html" class="error-quick-link">
+        <i class="fas fa-envelope" aria-hidden="true"></i> Contact
+      </a>
+    </nav>
+
+  </div>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-md-6 col-lg-4">
+        <div class="footer-brand" aria-label="DemoTube">
+          <div class="brand-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+          Demo<span style="color:var(--secondary);">Tube</span>
+        </div>
+        <p class="footer-desc">Empowering learners worldwide with expert-led courses, practical projects, and lifetime access to world-class education.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Follow us on YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Quick Links</h3>
+        <nav aria-label="Footer navigation">
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Home</a></li>
+            <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Courses</a></li>
+            <li><a href="teachers.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Teachers</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> About</a></li>
+            <li><a href="blog.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Blog</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Contact</a></li>
+            <li><a href="faq.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Categories</h3>
+        <ul class="footer-links">
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Programming</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Web Dev</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> AI &amp; ML</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Data Science</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Design</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Business</a></li>
+          <li><a href="courses.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> English</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="footer-contact-info">123 Learning Street, Education City, London EC1A 1BB, UK</div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-phone"></i></div>
+          <div class="footer-contact-info"><a href="tel:+441234567890" style="color:rgba(255,255,255,0.6);">+44 123 456 7890</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
+          <div class="footer-contact-info"><a href="mailto:hello@demotube.com" style="color:rgba(255,255,255,0.6);">hello@demotube.com</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
+          <div class="footer-contact-info">Mon – Fri: 9:00 AM – 6:00 PM</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 DemoTube. All rights reserved. Made with <span style="color:#ef4444;">♥</span> for learners worldwide.</p>
+      <div style="display:flex;gap:16px;">
+        <a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Privacy Policy</a>
+        <a href="#" style="font-size:13px;color:rgba(255,255,255,0.4);">Terms of Service</a>
+        <a href="sitemap.xml" style="font-size:13px;color:rgba(255,255,255,0.4);">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button class="scroll-top-btn" aria-label="Scroll to top">
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<!-- Main JS -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
